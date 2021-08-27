@@ -1,0 +1,103 @@
+
+
+.modal-animation
+  width: 100%
+  height: 100%
+  position: relative
+  -webkit-animation: color-change-2x 4s linear alternate both
+  animation: color-change-2x 4s linear alternate both
+
+@-webkit-keyframes color-change-2x
+  0%
+    background: rgb(154,76,218)
+    //background: linear-gradient(90deg, rgba(154,76,218,1) 0%, rgba(70,14,142,1) 100%)
+    //opacity: 1
+
+  100%
+    background: white
+    // opacity: 0
+
+
+@keyframes color-change-2x
+  0%
+    background: rgb(154,76,218)
+    // background: linear-gradient(90deg, rgba(154,76,218,1) 0%, rgba(70,14,142,1) 100%)
+    // opacity: 1
+
+  100%
+    background: white
+    // opacity: 0
+
+
+.title
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  height: 100%
+  color: whitee
+  webkit-animation: color-change-2x 4s linear alternate both
+  animation: color-change-2x 4s linear alternate both
+
+@-webkit-keyframes color-change-2x
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+º
+@keyframes color-change-2x
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+
+
+/* styles */
+
+@import "src/styles/styles"
+
+$nav-height: 232px
+
+.navbar
+  background: white
+  height: $nav-height
+
+.container-showcase-1
+  padding-top: $nav-height
+  >.row:first-child
+    margin-bottom: 77px
+  >.row:nth-child(2)
+    margin-bottom: 171px
+
+.col-info
+  box-shadow: 0 3px 5px #48454D52
+  border: 1px solid #CFCFCF
+  border-radius: 49px
+  max-width: 536px
+  padding: 80px 82px 90px 82px
+  text-align: center
+  &-title
+    color: $lup-violet-dark
+    font-size: 40px
+    font-family: Montserrat-Bold, sans-serif
+    letter-spacing: 0.68px
+    margin-bottom: 42px
+  &-subtitle
+    color: $lup-violet
+    font-family: 'Open Sans', sans-serif
+    font-size: 30px
+    letter-spacing: 0.36px
+    margin-bottom: 52px
+
+.container-showcase-2
+  &__title
+    color: #7B2CBF
+    font-family: Montserrat-Bold, sans-serif
+    font-size: 45px
+    letter-spacing: 0.68px
+    max-width: 640px
+    margin-bottom: 63.4px
