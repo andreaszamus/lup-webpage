@@ -3,31 +3,6 @@
 <nav class="navbar navbar-light fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <form [formGroup]="profileForm" class="lup-form" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <div class="col-6 text-end">
-            <label for="name">Nombre completo</label>
-          </div>
-          <div class="col-6">
-            <input id="name" type="text" formControlName="name">
-          </div>
-        </div>
-
-        <label for="cellphone">Last Name</label>
-        <input id="cellphone" type="text" formControlName="cellphone">
-
-        <label for="email">E-mail</label>
-        <input id="email" type="text" formControlName="email" [email]="true">
-
-        <label for="country">País</label>
-        <input id="country" type="text" formControlName="country">
-
-        <label for="address">Dirección</label>
-        <input id="address" type="text" formControlName="address">
-
-
-        <button type="submit">Submit</button>
-      </form>
     </a>
   </div>
 </nav>
@@ -43,7 +18,7 @@
       <div class="container-showcase-1__subtitle">
         Financiando con<br/>nosotros tu proyecto
       </div>
-      <button class="lup-btn">conoce más</button>
+      <button class="lup-btn lup-btn--violet">conoce más</button>
     </div>
   </div>
   <div class="row">
@@ -200,8 +175,9 @@
       ¿Listo para empezar con una nueva forma de hacer las cosas?
     </div>
     <div class="col-12">
-      <button class="lup-btn">¿Comenzamos?</button>
+      <button class="lup-btn lup-btn--violet">¿Comenzamos?</button>
     </div>
+    <div class="col-12" style="width: 100%; background: red; height: 500px"></div>
   </div>
 </div>
 <div class="container-fluid container-showcase-8">

@@ -7,7 +7,7 @@
       que puedes obtener de manera personalizada
     </div>
     <div class="initial-data__first-screen__btn text-end">
-      <a class="btn-next" (click)="closeFirstScreen()">continuar</a>
+      <a class="btn-navigation btn-navigation--white" (click)="goToNextScreen(2)">continuar</a>
     </div>
   </div>
   <div class="initial-data__second-screen {{secondScreenClass}}">
@@ -21,8 +21,71 @@
       para responder las siguientes preguntas
     </div>
     <div class="initial-data__first-screen__btn text-end">
-      <a class="btn-next" (click)="closeSecondScreen()">continuar</a>
+      <a class="btn-navigation" (click)="goToNextScreen(3)">continuar</a>
     </div>
   </div>
-  <div class="initial-data__third-screen"></div>
+  <div class="initial-data__third-screen {{thirdScreenClass}}">
+    <app-flux-status-header
+      [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'">
+    </app-flux-status-header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-6 offset-sm-1">
+          <div class="lup-checkbox">
+            <div class="lup-checkbox__title">Eres</div>
+            <input type="radio" id="personaNatural"
+                   name="nature" value="pn">
+            <label for="personaNatural">Persona Natural</label>
+            <input type="radio" id="personaJuridica"
+                   name="nature" value="pj">
+            <label for="personaJuridica">Persona Jurídica</label>
+          </div>
+          <div class="lup-form">
+            <div class="lup-form__field">
+              <label for="input1">
+                ¿Cuánto pagaste en tu última<br/>factura de energía?
+              </label>
+              <input id="input1" class="lup-form__input" type="number" placeholder="500.000"/>
+            </div>
+            <div class="lup-form__field">
+              <label for="input2">
+                ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
+              </label>
+              <input id="input2" class="lup-form__input" type="number" placeholder="181kWh"/>
+            </div>
+            <div class="lup-form__field">
+              <label for="input3">
+                ¿En qué ciudad se ubicaría tu<br/>proyecto solar?
+              </label>
+              <input id="input3" class="lup-form__input" type="number" placeholder="Medellín"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 initial-data__third-screen__description-1 text-end">
+          <div class="initial-data__third-screen__description-1">
+            <p>
+              <span class="openSansBold">Los datos señalados </span>podrás encontrarlos<br/>
+              en tu factura de la siguiente forma:
+            </p>
+            <br/>
+          </div>
+          <div class="initial-data__third-screen__description-2">
+            (su ubicación en la factura depende<br/>
+            de la empresa prestadora del servicio)
+          </div>
+          <div class="initial-data__third-screen__description-3">
+            <div class="initial-data__third-screen__description-3--image"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 offset-sm-8 col-sm-2">
+          <a class="btn-navigation btn-navigation--violet" (click)="goToNextScreen(4)">continuar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="initial-data__fourth-screen">
+    <app-flux-choice (onGoBack)="goBackToScreen(3)"></app-flux-choice>
+  </div>
 </div>

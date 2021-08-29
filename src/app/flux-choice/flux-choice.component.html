@@ -1,0 +1,37 @@
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>proyecto solar</span></p>'">
+</app-flux-status-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-5 offset-sm-1 flux-choice--description">
+      Para calcular una solución adecuada para la financiación para tu proyecto, queremos conocer sobre tu proceso
+      <span class="openSansBold">¿Haz encontrado a un instalador?</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="flux-choice__options">
+        <div class="flux-choice__option">
+          <button class="flux-choice__btn flux-choice__btn--yellow">
+            Ya tengo una cotización
+          </button>
+          <a class="flux-choice__link flux-choice__link--yellow">
+            Y quiero financiarla
+          </a>
+        </div>
+        <div class="flux-choice__option">
+          <button class="flux-choice__btn flux-choice__btn--violet">
+            Aún no tengo una cotización
+          </button>
+          <a class="flux-choice__link flux-choice__link--violet">
+            Y quiero obtenerla
+          </a></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-5 offset-sm-1">
+      <a class="btn-navigation btn-navigation--violet" (click)="goBack()">anterior</a>
+    </div>
+  </div>
+</div>

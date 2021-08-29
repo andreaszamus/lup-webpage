@@ -16,10 +16,11 @@ $lup-dark-grey: #505050
   font-family: 'Montserrat-SemiBold'
   src: url('../assets/fonts/Montserrat-SemiBold.ttf') format("truetype")
 
+.openSansBold
+  font-family: 'Open Sans Bold', sans-serif
 // buttons
 .lup-btn
   border: none
-  background: transparent linear-gradient(105deg, #500692 0%, #AD52FE 100%) 0% 0% no-repeat padding-box
   box-shadow: 0 3px 6px #00000029
   border-radius: 43px
   color: white
@@ -28,8 +29,26 @@ $lup-dark-grey: #505050
   letter-spacing: 1.35px
   min-width: 276px
   min-height: 70px
+  &--violet
+    background: transparent linear-gradient(105deg, #500692 0%, #AD52FE 100%) 0% 0% no-repeat padding-box
   &:hover
     background: transparent linear-gradient(90deg, #460E8E 0%, #FEA837 100%) 0% 0% no-repeat padding-box
+  &--yellow
+    background: transparent linear-gradient(90deg, #FEA837 0%, #FFC272 100%) 0% 0% no-repeat padding-box
+
+.btn-navigation
+  text-decoration: none
+  border-bottom: 3px solid white
+  cursor: pointer
+  font-size: 38px
+  font-family: Montserrat-SemiBold, sans-serif
+  letter-spacing: 1.52px
+  &--white
+    color: white
+  &--violet
+    color: $lup-violet-dark
+
+// colours
 
 .color-lup--violet
   color: $lup-violet-dark
@@ -39,3 +58,115 @@ $lup-dark-grey: #505050
 
 .color-lup--yellow
   color: $lup-yellow
+
+// overrides
+p
+  margin-bottom: 0 !important
+
+// forms
+.lup-form
+  display: flex
+  flex-direction: column
+  width: 100%
+  &__field
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    align-items: center
+    margin-bottom: 64px
+  label
+    color: $lup-violet-dark
+    font-family: Montserrat-SemiBold, sans-serif
+    font-size: 28px
+    margin-right: 57px
+    text-align: right
+  input
+    background: #E4E4E47A
+    border: 1px solid #98989829
+    border-radius: 35px
+    font-size: 26px
+    height: 69px
+    letter-spacing: 2.6px
+    text-align: center
+    &::placeholder
+      color: #707070
+      opacity: 0.33
+
+.lup-checkbox
+  background: #FFFFFF 0% 0% no-repeat padding-box
+  box-shadow: 0px 3px 5px #48454D52
+  border: 1px solid #CFCFCF
+  border-radius: 49px
+  min-height: 96px
+  width: 100%
+  display: flex
+  flex-direction: row
+  color: $lup-violet-dark
+  font-family: Montserrat-SemiBold, sans-serif
+  font-size: 28px
+  justify-content: flex-start
+  align-items: center
+  &__title
+    margin-left: 39px
+    margin-right: 57px
+  input
+    margin-right: 25px
+  label
+    margin-right: 57px
+
+// animations
+.slide-out-left
+  -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
+  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
+
+@-webkit-keyframes slide-out-left
+  0%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+  100%
+    -webkit-transform: translateX(-3000px)
+    transform: translateX(-3000px)
+    opacity: 0
+
+
+@keyframes slide-out-left
+  0%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+  100%
+    -webkit-transform: translateX(-3000px)
+    transform: translateX(-3000px)
+    opacity: 0
+
+.slide-in-left
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+
+@-webkit-keyframes slide-in-left
+  0%
+    -webkit-transform: translateX(-3000px)
+    transform: translateX(-3000px)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+
+@keyframes slide-in-left
+  0%
+    -webkit-transform: translateX(-3000px)
+    transform: translateX(-3000px)
+    opacity: 0
+
+  100%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+
