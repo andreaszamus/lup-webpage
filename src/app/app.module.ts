@@ -7,13 +7,15 @@ import { LandingComponent } from './landing/landing.component';
 import { InitialStepsModalComponent } from './initial-steps-modal/initial-steps-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
+import { InitialDataComponent } from './initial-data/initial-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     InitialStepsModalComponent,
-    WelcomeModalComponent
+    WelcomeModalComponent,
+    InitialDataComponent
   ],
   imports: [
     BrowserModule,
