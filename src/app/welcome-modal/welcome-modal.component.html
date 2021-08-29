@@ -1,0 +1,12 @@
+<div class="screen-container">
+  <div class="screen second-screen {{animationClassSecondScreen}}" (click)="onClickSecondScreen()">
+    <div class="second-screen__title">
+      <p>Logo evolti</p>
+    </div>
+  </div>
+  <div class="screen first-screen {{animationClassFirstScreen}}" *ngIf="showFirstScreen" (click)="onClickFirstScreen()">
+    <div class="first-screen__title">
+      <p>Bienvenido a</p>
+    </div>
+  </div>
+</div>
