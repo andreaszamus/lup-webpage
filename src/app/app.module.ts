@@ -8,6 +8,8 @@ import { InitialStepsModalComponent } from './initial-steps-modal/initial-steps-
 import {ReactiveFormsModule} from "@angular/forms";
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
 import { InitialDataComponent } from './initial-data/initial-data.component';
+import { FluxStatusHeaderComponent } from './flux-status-header/flux-status-header.component';
+import { FluxChoiceComponent } from './flux-choice/flux-choice.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { InitialDataComponent } from './initial-data/initial-data.component';
     LandingComponent,
     InitialStepsModalComponent,
     WelcomeModalComponent,
-    InitialDataComponent
+    InitialDataComponent,
+    FluxStatusHeaderComponent,
+    FluxChoiceComponent
   ],
   imports: [
     BrowserModule,

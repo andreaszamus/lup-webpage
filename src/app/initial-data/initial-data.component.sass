@@ -1,3 +1,5 @@
+@import "src/styles/styles"
+
 .initial-data__container
   position: relative
   >*
@@ -11,9 +13,11 @@
   flex-direction: column
   justify-content: center
   align-items: center
+  // if you need to disable these screens
+  // display: none
 
 .initial-data__first-screen
-  z-index: 3
+  z-index: 10
   &__icon
     background: red
     height: 100px
@@ -26,7 +30,7 @@
     width: 70%
 
 .initial-data__second-screen
-  z-index: 2
+  z-index: 9
   color: white
   &__icon
     height: 100px
@@ -38,41 +42,36 @@
   &__subtitle
     font-size: 40px
     font-family: "Open Sans", sans-serif
-.initial-data__second-screen
-  z-index: 1
 
-.btn-next
-  border-bottom: 3px solid white
-  color: white
-  font-size: 38px
-  font-family: Montserrat-Bold, sans-serif
-  letter-spacing: 1.52px
+.initial-data__third-screen
+  // if you want to disable this screen
+  // display: none
+  background: white
+  z-index: 8
+  .container-fluid
+    margin-top: 117px
+  &__description-1, &__description-2
+    font-family: "Open Sans", sans-serif
+  &__description-1
+    font-size: 25px
+    color: $lup-dark-grey
+  &__description-2
+    color: $lup-violet-light
+    font-size: 20px
+    margin-bottom: 62px
+  &__description-3
+    display: flex
+    justify-content: flex-end
+    &--image
+      background: red
+      width: 200px
+      height: 200px
 
-.slide-out-left
-  -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
-  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
+.initial-data__fourth-screen
+  z-index: 7
 
-@-webkit-keyframes slide-out-left
-  0%
-    -webkit-transform: translateX(0)
-    transform: translateX(0)
-    opacity: 1
-
-  100%
-    -webkit-transform: translateX(-1000px)
-    transform: translateX(-1000px)
-    opacity: 0
-
-
-@keyframes slide-out-left
-  0%
-    -webkit-transform: translateX(0)
-    transform: translateX(0)
-    opacity: 1
-
-  100%
-    -webkit-transform: translateX(-1000px)
-    transform: translateX(-1000px)
-    opacity: 0
-
-
+// overrides
+.lup-form__input
+  width: 352px
+.lup-checkbox
+  margin-bottom: 72px

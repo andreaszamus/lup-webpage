@@ -7,20 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitialDataComponent implements OnInit {
 
-  firstScreenClass = ''
-  secondScreenClass = ''
+  firstScreenClass = '';
+  secondScreenClass = '';
+  thirdScreenClass = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  closeFirstScreen(): void {
-    this.firstScreenClass = 'slide-out-left';
+  goToNextScreen(screenNumber: number): void {
+    if (screenNumber == 2) {
+      this.firstScreenClass = 'slide-out-left';
+    } else if (screenNumber == 3) {
+      this.secondScreenClass = 'slide-out-left';
+    } else if (screenNumber == 4) {
+      this.thirdScreenClass = 'slide-out-left';
+    }
   }
 
-  closeSecondScreen(): void {
-    this.secondScreenClass = 'slide-out-left';
+  goBackToScreen(screenNumber: number): void {
+    if (screenNumber == 3) {
+        this.thirdScreenClass = 'slide-in-left';
+    }
   }
 
 }

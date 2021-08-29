@@ -1,0 +1,45 @@
+@import "src/styles/styles"
+
+@mixin flex-center
+  display: flex
+  align-items: center
+
+@mixin font-styles
+  font-family: Montserrat-Bold, sans-serif
+  font-size: 28px
+
+.container-fluid
+  margin-top: 93px
+.flux-choice
+  &--description
+    color: $lup-dark-grey
+    font-family: "Open Sans", sans-serif
+    font-size: 25px
+    margin-bottom: 230px
+  &__options
+    @include flex-center
+    justify-content: center
+  &__option
+    @include flex-center
+    flex-direction: column
+    &:first-child
+      margin-right: 144px
+  &__btn
+    @include font-styles
+    border: none
+    border-radius: 41px
+    color: white
+    min-height: 82px
+    padding: 0 62px
+    &--yellow
+      background: transparent linear-gradient(90deg, #FEA837 0%, #FFC272 100%) 0% 0% no-repeat padding-box
+    &--violet
+      background: transparent linear-gradient(90deg, #460E8E 0%, #9D4EDD 100%) 0% 0% no-repeat padding-box
+  &__link
+    @include font-styles
+    margin-top: 23px
+    text-decoration: none
+    &--yellow
+      color: $lup-yellow
+    &--violet
+      color: $lup-violet-dark
