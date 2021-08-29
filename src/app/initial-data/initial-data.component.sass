@@ -1,0 +1,78 @@
+.initial-data__container
+  position: relative
+  >*
+    position: absolute
+    height: 100vh
+    width: 100vw
+
+.initial-data__first-screen, .initial-data__second-screen
+  background: transparent linear-gradient(270deg, #510CA8 0%, #2B054A 100%) 0% 0% no-repeat padding-box
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.initial-data__first-screen
+  z-index: 3
+  &__icon
+    background: red
+    height: 100px
+    width: 100px
+  &__title
+    font-family: Montserrat-Bold, sans-serif
+    color: white
+    font-size: 50px
+  &__btn
+    width: 70%
+
+.initial-data__second-screen
+  z-index: 2
+  color: white
+  &__icon
+    height: 100px
+    width: 100px
+    background: red
+  &__title
+    font-size: 50px
+    font-family: Montserrat-Bold, sans-serif
+  &__subtitle
+    font-size: 40px
+    font-family: "Open Sans", sans-serif
+.initial-data__second-screen
+  z-index: 1
+
+.btn-next
+  border-bottom: 3px solid white
+  color: white
+  font-size: 38px
+  font-family: Montserrat-Bold, sans-serif
+  letter-spacing: 1.52px
+
+.slide-out-left
+  -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
+  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both
+
+@-webkit-keyframes slide-out-left
+  0%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+  100%
+    -webkit-transform: translateX(-1000px)
+    transform: translateX(-1000px)
+    opacity: 0
+
+
+@keyframes slide-out-left
+  0%
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    opacity: 1
+
+  100%
+    -webkit-transform: translateX(-1000px)
+    transform: translateX(-1000px)
+    opacity: 0
+
+
