@@ -6,16 +6,21 @@ $lup-violet: #500692
 $lup-violet-light: #7B2CBF
 $lup-yellow: #fea837
 $lup-dark-grey: #505050
+
 // fonts
 @font-face
   font-family: 'Montserrat-Bold'
   src: url('../assets/fonts/Montserrat-Bold.ttf') format("truetype")
 
+@font-face
+  font-family: 'Montserrat-SemiBold'
+  src: url('../assets/fonts/Montserrat-SemiBold.ttf') format("truetype")
+
 // buttons
 .lup-btn
   border: none
   background: transparent linear-gradient(105deg, #500692 0%, #AD52FE 100%) 0% 0% no-repeat padding-box
-  box-shadow: 0px 3px 6px #00000029
+  box-shadow: 0 3px 6px #00000029
   border-radius: 43px
   color: white
   font-family: Monserrat-Bold, sans-serif
@@ -23,6 +28,8 @@ $lup-dark-grey: #505050
   letter-spacing: 1.35px
   min-width: 276px
   min-height: 70px
+  &:hover
+    background: transparent linear-gradient(90deg, #460E8E 0%, #FEA837 100%) 0% 0% no-repeat padding-box
 
 .color-lup--violet
   color: $lup-violet-dark
