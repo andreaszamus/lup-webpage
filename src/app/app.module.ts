@@ -14,6 +14,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
 import { ResultScreenComponent } from './result-screen/result-screen.component';
 import { WelcomeScreenOneComponent } from './welcome-screen-one/welcome-screen-one.component';
 import { WelcomeScreenTwoComponent } from './welcome-screen-two/welcome-screen-two.component';
+import { FluxChoiceOneComponent } from './flux-choice-one/flux-choice-one.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { WelcomeScreenTwoComponent } from './welcome-screen-two/welcome-screen-t
     LoadingScreenComponent,
     ResultScreenComponent,
     WelcomeScreenOneComponent,
-    WelcomeScreenTwoComponent
+    WelcomeScreenTwoComponent,
+    FluxChoiceOneComponent
   ],
   imports: [
     BrowserModule,
