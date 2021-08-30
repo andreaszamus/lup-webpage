@@ -1,0 +1,28 @@
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>'">
+</app-flux-status-header>
+<div class="container result-screen__container">
+  <div class="row">
+    <div class="col-12">
+      <div class="result-screen__title-container">
+        <div class="result-screen__title text-center">
+          {{title}}
+        </div>
+        <div class="result-screen__subtitle text-center">
+          {{subtitle}}
+        </div>
+        <a class="btn-navigation btn-navigation--violet btn-navigation--go"
+          (click)="continue()">
+          ¿Deseas continuar con el proceso?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 offset-md-1">
+      <a class="btn-navigation btn-navigation--violet btn-navigation--back" (click)="back()">anterior</a>
+    </div>
+  </div>
+</div>

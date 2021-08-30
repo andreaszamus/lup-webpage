@@ -1,30 +1,14 @@
 <div class="initial-data__container">
-  <div class="initial-data__first-screen {{firstScreenClass}}">
-    <div class="initial-data__first-screen__icon"></div>
-    <div class="initial-data__first-screen__title text-center">
-      Te pediremos algunos datos sobre<br/>
-      tu proyecto para contarte todos los beneficios<br/>
-      que puedes obtener de manera personalizada
-    </div>
-    <div class="initial-data__first-screen__btn text-end">
-      <a class="btn-navigation btn-navigation--white" (click)="goToNextScreen(2)">continuar</a>
-    </div>
+  <!-- development screen -->
+  <div class="initial-data__screen-1 {{screen1Class}}">
+    <app-welcome-screen-one
+      (onContinue)="goToNextScreen(2)"></app-welcome-screen-one>
   </div>
-  <div class="initial-data__second-screen {{secondScreenClass}}">
-    <div class="initial-data__second-screen__icon"></div>
-    <div class="initial-data__second-screen__title">
-      Recuerda
-    </div>
-    <div class="initial-data__second-screen__subtitle">
-      Debes tener a la mano tu factura de servicios públicos<br/>
-      más reciente, allí encontrarás la información necesaria<br/>
-      para responder las siguientes preguntas
-    </div>
-    <div class="initial-data__first-screen__btn text-end">
-      <a class="btn-navigation" (click)="goToNextScreen(3)">continuar</a>
-    </div>
+  <div class="initial-data__screen-2 {{screen2Class}}">
+    <app-welcome-screen-two
+      (onContinue)="goToNextScreen(3)"></app-welcome-screen-two>
   </div>
-  <div class="initial-data__third-screen {{thirdScreenClass}}">
+  <div class="initial-data__screen-3 {{screen3Class}}">
     <app-flux-status-header
       [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'">
     </app-flux-status-header>
@@ -61,20 +45,20 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-4 initial-data__third-screen__description-1 text-end">
-          <div class="initial-data__third-screen__description-1">
+        <div class="col-12 col-md-4 initial-data__screen-3__description-1 text-end">
+          <div class="initial-data__screen-3__description-1">
             <p>
               <span class="openSansBold">Los datos señalados </span>podrás encontrarlos<br/>
               en tu factura de la siguiente forma:
             </p>
             <br/>
           </div>
-          <div class="initial-data__third-screen__description-2">
+          <div class="initial-data__screen-3__description-2">
             (su ubicación en la factura depende<br/>
             de la empresa prestadora del servicio)
           </div>
-          <div class="initial-data__third-screen__description-3">
-            <div class="initial-data__third-screen__description-3--image"></div>
+          <div class="initial-data__screen-3__description-3">
+            <div class="initial-data__screen-3__description-3--image"></div>
           </div>
         </div>
       </div>
@@ -85,7 +69,7 @@
       </div>
     </div>
   </div>
-  <div class="initial-data__fourth-screen">
+  <div class="initial-data__screen-4">
     <app-flux-choice (onGoBack)="goBackToScreen(3)"></app-flux-choice>
   </div>
 </div>

@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitialDataComponent implements OnInit {
 
-  firstScreenClass = '';
-  secondScreenClass = '';
-  thirdScreenClass = '';
+  screen1Class = '';
+  screen2Class = '';
+  screen3Class = '';
 
   constructor() { }
 
@@ -18,17 +18,17 @@ export class InitialDataComponent implements OnInit {
 
   goToNextScreen(screenNumber: number): void {
     if (screenNumber == 2) {
-      this.firstScreenClass = 'slide-out-left';
+      this.screen1Class = 'slide-out-left';
     } else if (screenNumber == 3) {
-      this.secondScreenClass = 'slide-out-left';
+      this.screen2Class = 'slide-out-left';
     } else if (screenNumber == 4) {
-      this.thirdScreenClass = 'slide-out-left';
+      this.screen3Class = 'slide-out-left';
     }
   }
 
   goBackToScreen(screenNumber: number): void {
     if (screenNumber == 3) {
-        this.thirdScreenClass = 'slide-in-left';
+        this.screen3Class = 'slide-in-left';
     }
   }
 
