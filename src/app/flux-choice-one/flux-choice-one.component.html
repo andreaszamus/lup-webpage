@@ -1,0 +1,50 @@
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>proyecto solar</span></p>'">
+</app-flux-status-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+      <div class="flux-one__header">Ya tengo una cotización</div>
+    </div>
+    <div class="col-12 text-center">
+      <div class="flux-one__title">¿Quién es tu proveedor de paneles solares?</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="flux-one__form">
+        <div class="lup-form">
+          <div class="lup-form__field">
+            <label for="input1">
+              Nombre de la empresa
+            </label>
+            <input id="input1" class="lup-form__input" type="number" placeholder="500.000"/>
+          </div>
+          <div class="lup-form__field">
+            <label for="input2">
+              ¿Cuánta energía <span class="color-lup--yellow">mensual</span> generaría<br/>
+              tu proyecto en kilovatio/hora <span class="color-lup--violet-light">(kWh)</span>?
+            </label>
+            <input id="input2" class="lup-form__input" type="number" placeholder="181kWh"/>
+          </div>
+          <div class="lup-form__field">
+            <label for="input3">
+              Ingresa el precio total<br/>
+              del proyecto a financiar
+            </label>
+            <input id="input3" class="lup-form__input" type="number" placeholder="25'500,000"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-5 offset-sm-1">
+      <a class="btn-navigation btn-navigation--violet" (click)="goBack()">anterior</a>
+    </div>
+    <div class="col-12 col-sm-5 text-end">
+      <a class="btn-navigation btn-navigation--violet" (click)="continue()">continuar</a>
+    </div>
+  </div>
+</div>
+
