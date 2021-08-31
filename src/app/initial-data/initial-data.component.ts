@@ -10,6 +10,9 @@ export class InitialDataComponent implements OnInit {
   screen1Class = '';
   screen2Class = '';
   screen3Class = '';
+  screen4Class = '';
+  screen5Class = '';
+  screen6Class = '';
 
   constructor() { }
 
@@ -17,18 +20,26 @@ export class InitialDataComponent implements OnInit {
   }
 
   goToNextScreen(screenNumber: number): void {
+    const goClass = 'slide-out-left';
     if (screenNumber == 2) {
-      this.screen1Class = 'slide-out-left';
+      this.screen1Class = goClass;
     } else if (screenNumber == 3) {
-      this.screen2Class = 'slide-out-left';
+      this.screen2Class = goClass;
     } else if (screenNumber == 4) {
-      this.screen3Class = 'slide-out-left';
+      this.screen3Class = goClass;
+    } else if (screenNumber == 5) {
+      this.screen4Class = goClass;
+    } else if (screenNumber == 6) {
+      this.screen5Class = goClass;
     }
   }
 
   goBackToScreen(screenNumber: number): void {
+    const backClass = 'slide-in-left';
     if (screenNumber == 3) {
-        this.screen3Class = 'slide-in-left';
+        this.screen3Class = backClass;
+    } else if (screenNumber == 4) {
+      this.screen4Class = backClass;
     }
   }
 

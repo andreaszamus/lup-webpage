@@ -1,8 +1,10 @@
 <div class="initial-data__container">
   <!-- development screen -->
-  <!--<div style="background: green"
+  <!--<div style="background: white"
     class="initial-data__screen-0 {{screen1Class}}">
-    <app-flux-choice-one></app-flux-choice-one>
+    <app-flux-choice-two
+      (onGoBack)="goToNextScreen(4)"
+    ></app-flux-choice-two>
   </div>-->
   <div class="initial-data__screen-1 {{screen1Class}}">
     <app-welcome-screen-one
@@ -73,12 +75,24 @@
       </div>
     </div>
   </div>
-  <div class="initial-data__screen-4">
-    <app-flux-choice (onGoBack)="goBackToScreen(3)"></app-flux-choice>
+  <div class="initial-data__screen-4 {{screen4Class}}">
+    <app-flux-choice (onGoBack)="goBackToScreen(3)"
+                     (onChoiceOne)="goToNextScreen(5)"
+                     (onChoiceTwo)="goToNextScreen(6)">
+    </app-flux-choice>
   </div>
 
-  <div class="initial-data__screen-5">
-    <app-flux-choice-one></app-flux-choice-one>
+  <div class="initial-data__screen-5 {{screen5Class}}">
+    <app-flux-choice-one
+      (onGoBack)="goBackToScreen(4)"
+      (onContinue)="goToNextScreen(-1)"
+      ></app-flux-choice-one>
+  </div>
+
+  <div class="initial-data__screen-6 {{screen6Class}}">
+    <app-flux-choice-two
+      (onGoBack)="goToNextScreen(4)"
+    ></app-flux-choice-two>
   </div>
 
 </div>

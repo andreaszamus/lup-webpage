@@ -33,7 +33,7 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // this opens da modal on start
-    // this.openWelcomeModal?.nativeElement.click();
+    this.openWelcomeModal?.nativeElement.click();
   }
 
   closeModal(): void {
