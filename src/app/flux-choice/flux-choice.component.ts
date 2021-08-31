@@ -8,6 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class FluxChoiceComponent implements OnInit {
 
   @Output() onGoBack = new EventEmitter<string>();
+  @Output() onChoiceOne = new EventEmitter<string>();
+  @Output() onChoiceTwo = new EventEmitter<string>();
 
   constructor() { }
 
@@ -16,6 +18,14 @@ export class FluxChoiceComponent implements OnInit {
 
   goBack(): void {
     this.onGoBack.emit();
+  }
+
+  goToChoiceOne() {
+    this.onChoiceOne.emit();
+  }
+
+  goToChoiceTwo() {
+    this.onChoiceTwo.emit();
   }
 
 }

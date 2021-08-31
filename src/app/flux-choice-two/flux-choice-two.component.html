@@ -1,0 +1,51 @@
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>proyecto solar</span></p>'">
+</app-flux-status-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-10">
+      <div class="flux-two__header">No tengo una cotización</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-5">
+      <div class="flux-two__box">
+        <div class="flux-two__box-title">
+          ¿Tienes el tamaño del área, en metros cuadrados (mt ), donde se instalaría el proyecto ?
+        </div>
+        <div class="flux-two__question">
+          <div class="flux-two__options">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Sí ¿Cuánto?
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+            </div>
+          </div>
+          <div class="flux-two__optional-answer">
+            <div class="lup-form">
+              <input id="input1" class="" type="number"/>
+            </div>
+          </div>
+        </div>
+        <div class="flux-two__btn-next text-center">
+          <a class="btn-navigation btn-navigation--violet" (click)="continue()">continuar</a>
+        </div>
+      </div>
+      <div class="flux-two__btn-back">
+        <a class="btn-navigation btn-navigation--violet" (click)="goBack()">anterior</a>
+      </div>
+    </div>
+    <div class="col-12 col-md-5 text-end flux-two__subtitle">
+      De acuerdo a los datos que proporcionaste<br/>
+      este es el <span class="openSansBold">valor aproximado</span> para la instalación<br>
+      del proyecto solar que evolti financiaría
+    </div>
+  </div>
+</div>
