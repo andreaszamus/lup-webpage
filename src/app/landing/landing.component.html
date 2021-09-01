@@ -7,7 +7,15 @@
     </a>
   </div>
 </nav>
-
+<!-- Modal -->
+<div class="modal" id="welcomeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <app-welcome-modal (onClosedModal)="closeModal()"></app-welcome-modal>
+      <button #closeWelcomeModal type="button" data-bs-dismiss="modal"></button>
+    </div>
+  </div>
+</div>
 <div class="container-fluid container-showcase-1">
   <div class="row">
     <div class="col-12 offset-md-2 col-md-6 container-showcase-1__col">
@@ -17,7 +25,9 @@
       <div class="container-showcase-1__subtitle">
         Financiando con<br/>nosotros tu proyecto
       </div>
-      <button class="lup-btn lup-btn--violet">conoce más</button>
+      <button class="lup-btn lup-btn--violet"
+        ><a href="#letsgo">conoce más</a>
+        </button>
     </div>
   </div>
   <div class="row">
@@ -185,7 +195,7 @@
   </div>
 </div>
 
-<div class="container-showcase-7 text-center">
+<div id="letsgo" class="container-showcase-7 text-center">
   <div class="row">
     <div class="col-12 container-showcase-7__title">
       En solo 3 pasos aplica para<br/>
@@ -195,7 +205,9 @@
       ¿Listo para empezar con una nueva forma de hacer las cosas?
     </div>
     <div class="col-12 container-showcase-7__background">
-      <button class="lup-btn lup-btn--violet">¿Comenzamos?</button>
+      <button class="lup-btn lup-btn--violet"
+              (click)="goToInitalData()"
+        >¿Comenzamos?</button>
     </div>
   </div>
 </div>
@@ -207,12 +219,4 @@
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal" id="welcomeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <app-welcome-modal (onClosedModal)="closeModal()"></app-welcome-modal>
-      <button #closeWelcomeModal type="button" data-bs-dismiss="modal"></button>
-    </div>
-  </div>
-</div>
+

@@ -1,9 +1,17 @@
+@import "src/styles/styles"
+
 .initial-data__screen-2
   &__icon
+    height: 125px
+    width: 125px
+    // not-so-clean way to center elements, but today I'm sick
+    margin: 0 auto
+    @include alert
+  &__logo
     margin-top: 100px
     height: 100px
-    width: 100px
-    background: red
+    width: 160px
+    @include logo-evolti--white
   &__title
     color: white
     font-size: 50px

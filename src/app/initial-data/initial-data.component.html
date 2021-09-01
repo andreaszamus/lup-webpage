@@ -1,22 +1,21 @@
 <div class="initial-data__container">
-  <!-- development screen -->
-  <!--<div style="background: white"
-    class="initial-data__screen-0 {{screen1Class}}">
-    <app-flux-choice-two
-      (onGoBack)="goToNextScreen(4)"
-    ></app-flux-choice-two>
+  <!-- development screen
+  <div style="background: white"
+  <div class="initial-data__screen-0 {{screen7Class}}">
+    <app-loading-screen (onContinue)="goToNextScreen(1, 8)"></app-loading-screen>
   </div>-->
-  <div class="initial-data__screen-1 {{screen1Class}}">
+  <div class="initial-data__screen-1 {{screens[1]}}" *ngIf="screens[1].includes('visible')">
     <app-welcome-screen-one
-      (onContinue)="goToNextScreen(2)"></app-welcome-screen-one>
+      (onContinue)="goToScreen(1, 2)"></app-welcome-screen-one>
   </div>
-  <div class="initial-data__screen-2 {{screen2Class}}">
+  <div class="initial-data__screen-2 {{screens[2]}}" *ngIf="screens[2].includes('visible')">
     <app-welcome-screen-two
-      (onContinue)="goToNextScreen(3)"></app-welcome-screen-two>
+      (onContinue)="goToScreen(2, 3)"></app-welcome-screen-two>
   </div>
-  <div class="initial-data__screen-3 {{screen3Class}}">
+  <div class="initial-data__screen-3 {{screens[3]}}" *ngIf="screens[3].includes('visible')">
     <app-flux-status-header
-      [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'">
+      [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'"
+      [fluxStep]="1">
     </app-flux-status-header>
     <div class="container-fluid">
       <div class="row">
@@ -35,13 +34,13 @@
               <label for="input1">
                 ¿Cuánto pagaste en tu última<br/>factura de energía?
               </label>
-              <input id="input1" class="lup-form__input" type="number" placeholder="500.000"/>
+              <input id="input1" class="lup-form__input" type="number" placeholder="500.000" [(ngModel)]="lastMonthBill"/>
             </div>
             <div class="lup-form__field">
               <label for="input2">
                 ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
               </label>
-              <input id="input2" class="lup-form__input" type="number" placeholder="181kWh"/>
+              <input id="input2" class="lup-form__input" type="number" placeholder="181kWh" [ngModel]="lastMonthEnergyUsage"/>
             </div>
             <div class="lup-form__field">
               <label for="input3">
@@ -70,29 +69,59 @@
       </div>
       <div class="row">
         <div class="col-12 offset-sm-8 col-sm-2">
-          <a class="btn-navigation btn-navigation--violet" (click)="goToNextScreen(4)">continuar</a>
+          <a class="btn-navigation btn-navigation--violet" (click)="calculateAndContinue()">continuar</a>
         </div>
       </div>
     </div>
   </div>
-  <div class="initial-data__screen-4 {{screen4Class}}">
-    <app-flux-choice (onGoBack)="goBackToScreen(3)"
-                     (onChoiceOne)="goToNextScreen(5)"
-                     (onChoiceTwo)="goToNextScreen(6)">
+
+  <div class="initial-data__screen-4 {{screens[4]}}" *ngIf="screens[4].includes('visible')">
+    <app-flux-choice (onGoBack)="goToScreen(4, 3)"
+                     (onChoiceOne)="goToScreen(4, 5)"
+                     (onChoiceTwo)="goToScreen(4, 6)">
     </app-flux-choice>
   </div>
 
-  <div class="initial-data__screen-5 {{screen5Class}}">
+  <div class="initial-data__screen-5 {{screens[5]}}" *ngIf="screens[5].includes('visible')">
     <app-flux-choice-one
-      (onGoBack)="goBackToScreen(4)"
-      (onContinue)="goToNextScreen(-1)"
+      (onGoBack)="goToScreen(5, 4)"
+      (onContinue)="goToScreen(5, 7)"
       ></app-flux-choice-one>
   </div>
 
-  <div class="initial-data__screen-6 {{screen6Class}}">
+  <div class="initial-data__screen-6 {{screens[6]}}" *ngIf="screens[6].includes('visible')">
     <app-flux-choice-two
-      (onGoBack)="goToNextScreen(4)"
+      (onGoBack)="goToScreen(6, 4)"
+      (onContinue)="goToScreen(6, 10)"
     ></app-flux-choice-two>
+  </div>
+
+  <div class="initial-data__screen-7 {{screens[7]}}" *ngIf="screens[7]=='visible' || 'slide-out-left'">
+    <app-loading-screen (onContinue)="goToScreen(7, 8)"></app-loading-screen>
+  </div>
+
+  <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8]=='visible' || 'slide-out-left'">
+    <app-result-screen (onContinue)="goToScreen(8, 9)"></app-result-screen>
+  </div>
+
+  <div class="initial-data__screen-9 {{screens[9]}}" *ngIf="screens[9]=='visible' || 'slide-out-left'">
+    <app-contact-form></app-contact-form>
+  </div>
+
+  <div class="initial-data__screen-10 {{screens[10]}}">
+    <app-loading-screen (onContinue)="goToScreen(10, 11)"></app-loading-screen>
+  </div>
+
+  <div class="initial-data__screen-11 {{screens[11]}}">
+    <app-result-screen (onContinue)="goToScreen(11, 12)"></app-result-screen>
+  </div>
+
+  <div class="initial-data__screen-12 {{screens[12]}}">
+    <app-contact-form></app-contact-form>
+  </div>
+
+  <div class="initial-data__screen-13 {{screens[13]}}">
+    <app-contact-form></app-contact-form>
   </div>
 
 </div>
