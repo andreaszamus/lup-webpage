@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-landing',
@@ -21,7 +22,9 @@ export class LandingComponent implements OnInit, AfterViewInit {
     address: new FormControl()
   });
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -33,10 +36,14 @@ export class LandingComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // this opens da modal on start
-    this.openWelcomeModal?.nativeElement.click();
+    // this.openWelcomeModal?.nativeElement.click();
   }
 
   closeModal(): void {
     this.closeWelcomeModal?.nativeElement.click();
+  }
+
+  goToInitalData(): void {
+    this.router.navigate(['datos-iniciales']);
   }
 }

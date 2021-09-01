@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { InitialStepsModalComponent } from './initial-steps-modal/initial-steps-modal.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
 import { InitialDataComponent } from './initial-data/initial-data.component';
 import { FluxStatusHeaderComponent } from './flux-status-header/flux-status-header.component';
@@ -16,6 +16,8 @@ import { WelcomeScreenOneComponent } from './welcome-screen-one/welcome-screen-o
 import { WelcomeScreenTwoComponent } from './welcome-screen-two/welcome-screen-two.component';
 import { FluxChoiceOneComponent } from './flux-choice-one/flux-choice-one.component';
 import { FluxChoiceTwoComponent } from './flux-choice-two/flux-choice-two.component';
+import {HttpClientModule} from "@angular/common/http";
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,15 @@ import { FluxChoiceTwoComponent } from './flux-choice-two/flux-choice-two.compon
     WelcomeScreenOneComponent,
     WelcomeScreenTwoComponent,
     FluxChoiceOneComponent,
-    FluxChoiceTwoComponent
+    FluxChoiceTwoComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

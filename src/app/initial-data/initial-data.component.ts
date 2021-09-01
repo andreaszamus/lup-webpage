@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-initial-data',
@@ -7,40 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitialDataComponent implements OnInit {
 
-  screen1Class = '';
-  screen2Class = '';
-  screen3Class = '';
-  screen4Class = '';
-  screen5Class = '';
-  screen6Class = '';
+  screens = ['no','visible','','','','','','','','','', ''];
 
-  constructor() { }
+  lastMonthBill = '';
+  lastMonthEnergyUsage = '';
+
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   ngOnInit(): void {
   }
 
-  goToNextScreen(screenNumber: number): void {
-    const goClass = 'slide-out-left';
-    if (screenNumber == 2) {
-      this.screen1Class = goClass;
-    } else if (screenNumber == 3) {
-      this.screen2Class = goClass;
-    } else if (screenNumber == 4) {
-      this.screen3Class = goClass;
-    } else if (screenNumber == 5) {
-      this.screen4Class = goClass;
-    } else if (screenNumber == 6) {
-      this.screen5Class = goClass;
+  goToScreen(currentScreen: number, screenNumber: number): void {
+    console.log('screens: ', this.screens);
+    if (currentScreen < screenNumber) {
+      this.screens = ['no','','','','','','','','','','', ''];
+      this.screens[currentScreen] = 'visible slide-out-left';
+      this.screens[screenNumber] = 'visible';
+    } else {
+      this.screens = ['no','','','','','','','','','','', ''];
+      this.screens[currentScreen] = 'visible';
+      this.screens[screenNumber] = 'visible slide-in-left';
     }
   }
 
-  goBackToScreen(screenNumber: number): void {
-    const backClass = 'slide-in-left';
-    if (screenNumber == 3) {
-        this.screen3Class = backClass;
-    } else if (screenNumber == 4) {
-      this.screen4Class = backClass;
-    }
+  consultAvailability(): Promise<any> {
+
+    const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
+    const serviceBody = {
+      'lastMonthBill': this.lastMonthBill,
+      lastMonthEnergyUsage: 456
+    };
+    console.log('test:', serviceBody);
+    return this.httpClient.post(serviceURL, serviceBody).toPromise()
   }
 
+  calculateAndContinue() {
+    this.goToScreen(3, 4);
+    /*this.consultAvailability().then((result) => {
+      console.log('respuesta: ', JSON.parse(result));
+      //
+    });*/
+  }
 }

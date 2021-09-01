@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class FluxStatusHeaderComponent implements OnInit {
 
   @Input() fluxTitle = '';
+  @Input() fluxStep = 0;
 
   constructor() { }
 

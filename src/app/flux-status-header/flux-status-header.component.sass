@@ -1,3 +1,8 @@
+@mixin background-style
+  background-repeat: no-repeat no-repeat
+  background-size: contain
+  transform: scale(5)
+
 .flux-status-container
   background: white
   &__title
@@ -9,7 +14,19 @@
     display: flex
     align-items: flex-end
     justify-content: flex-end
-    &--default
-      width: 263px
-      background: red
+    >*
+      width: 100px
       height: 20px
+    &--0
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1254.2 403.96' style='enable-background:new 0 0 1254.2 403.96;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ACACAC;%7D%0A%3C/style%3E%3Cg id='Grupo_189' transform='translate(-1453 -131)'%3E%3Cg id='Línea_17'%3E%3Crect x='1559.74' y='330.98' class='st0' width='1051.37' height='4'/%3E%3C/g%3E%3Cg id='Elipse_40'%3E%3Ccircle class='st0' cx='1567.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_38'%3E%3Ccircle class='st0' cx='2072.51' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_39'%3E%3Ccircle class='st0' cx='2611.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+      @include background-style
+    &--1
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1254.2 403.96' style='enable-background:new 0 0 1254.2 403.96;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ACACAC;%7D .st1%7Bfill:%23460E8E;%7D%0A%3C/style%3E%3Cg id='Grupo_189' transform='translate(-1453 -131)'%3E%3Cg id='Línea_17'%3E%3Crect x='1559.74' y='330.98' class='st0' width='1051.37' height='4'/%3E%3C/g%3E%3Cg id='Elipse_40'%3E%3Ccircle class='st1' cx='1567.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_38'%3E%3Ccircle class='st0' cx='2072.51' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_39'%3E%3Ccircle class='st0' cx='2611.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+      @include background-style
+    &--2
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1254.2 403.96' style='enable-background:new 0 0 1254.2 403.96;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ACACAC;%7D .st1%7Bfill:%23FEA837;%7D .st2%7Bfill:%23460E8E;%7D%0A%3C/style%3E%3Cg id='Grupo_189' transform='translate(-1453 -131)'%3E%3Cg id='Línea_17'%3E%3Crect x='1559.74' y='330.98' class='st0' width='1051.37' height='4'/%3E%3C/g%3E%3Cg id='Elipse_40'%3E%3Ccircle class='st1' cx='1567.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_38'%3E%3Ccircle class='st2' cx='2072.51' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_39'%3E%3Ccircle class='st0' cx='2611.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+      @include background-style
+    &--3
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1254.2 403.96' style='enable-background:new 0 0 1254.2 403.96;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ACACAC;%7D .st1%7Bfill:%23FEA837;%7D .st2%7Bfill:%23460E8E;%7D%0A%3C/style%3E%3Cg id='Grupo_189' transform='translate(-1453 -131)'%3E%3Cg id='Línea_17'%3E%3Crect x='1559.74' y='330.98' class='st0' width='1051.37' height='4'/%3E%3C/g%3E%3Cg id='Elipse_40'%3E%3Ccircle class='st1' cx='1567.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_38'%3E%3Ccircle class='st1' cx='2072.51' cy='332.98' r='36.89'/%3E%3C/g%3E%3Cg id='Elipse_39'%3E%3Ccircle class='st2' cx='2611.11' cy='332.98' r='36.89'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+      @include background-style
+

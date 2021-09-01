@@ -31,6 +31,6 @@ export class WelcomeModalComponent implements OnInit {
     this.animationClassSecondScreen = 'slide-out-top';
     setTimeout(() => {
       this.onClosedModal.emit();
-    }, 550);
+    }, 500);
   }
 }
