@@ -1,0 +1,28 @@
+<div class="final-screen__container">
+  <div class="final-screen__icon"></div>
+  <div class="final-screen__title">
+    {{title}}
+  </div>
+  <div class="final-screen__subtitle text-center">
+    Validaremos toda tu información y nos pondremos en contacto contigo en los próximos
+    <span class="openSansBold">tres días</span>
+    para continuar tu proceso
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 offset-md-1 col-md-5">
+        <div class="final-screen__confirmation">
+          Hemos enviado una<br>
+          confirmación a tu e-mail
+        </div>
+        <button class="final-screen__resend-email" (click)="resendEmail()">
+          No me llegó el mensaje
+        </button>
+      </div>
+      <div class="col-12 col-md-5 text-end">
+        <button class="btn btn-link btn-navigation btn-navigation--white btn-navigation--small btn-navigation--left" (click)="back()">anterior</button>
+        <button class="btn btn-link btn-navigation btn-navigation--white" (click)="start()">Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+</div>

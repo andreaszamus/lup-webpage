@@ -1,22 +1,26 @@
 @import "src/styles/styles"
 
-.initial-data__screen-2
-  &__icon
-    height: 125px
-    width: 125px
-    // not-so-clean way to center elements, but today I'm sick
-    margin: 0 auto
-    @include alert
+.welcome-two
+  &__container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
   &__logo
+    @include logo-evolti--white
     margin-top: 100px
     height: 100px
     width: 160px
-    @include logo-evolti--white
+  &__icon
+    @include alert
+    height: 125px
+    width: 125px
+    margin-bottom: 42px
   &__title
     color: white
     font-size: 50px
     font-family: Montserrat-Bold, sans-serif
-    margin-top: 160px
+    margin-bottom: 26px
   &__subtitle
     color: white
     font-size: 40px

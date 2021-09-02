@@ -10,6 +10,9 @@ export class FluxChoiceTwoComponent implements OnInit {
   @Output() onGoBack = new EventEmitter<string>();
   @Output() onContinue = new EventEmitter<string>();
 
+  isLoading = false;
+  isResultReady = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -23,4 +26,15 @@ export class FluxChoiceTwoComponent implements OnInit {
     this.onContinue.emit();
   }
 
+  showMiniLoading() {
+    this.isLoading = true;
+  }
+
+  finishedLoading() {
+    this.isLoading = false;
+    setTimeout(() => {
+      this.isResultReady = true;
+    }, 250);
+
+  }
 }

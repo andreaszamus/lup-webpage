@@ -10,6 +10,7 @@ export class ResultScreenComponent implements OnInit {
   @Output() onContinue = new EventEmitter<string>();
   @Output() onBack = new EventEmitter<string>();
 
+  @Input() header = '';
   @Input() title = '';
   @Input() subtitle = '';
 

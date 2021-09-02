@@ -1,9 +1,4 @@
 <div class="initial-data__container">
-  <!-- development screen
-  <div style="background: white"
-  <div class="initial-data__screen-0 {{screen7Class}}">
-    <app-loading-screen (onContinue)="goToNextScreen(1, 8)"></app-loading-screen>
-  </div>-->
   <div class="initial-data__screen-1 {{screens[1]}}" *ngIf="screens[1].includes('visible')">
     <app-welcome-screen-one
       (onContinue)="goToScreen(1, 2)"></app-welcome-screen-one>
@@ -68,7 +63,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 offset-sm-8 col-sm-2">
+        <div class="col-12 offset-md-1 col-md-10 text-end">
           <a class="btn-navigation btn-navigation--violet" (click)="calculateAndContinue()">continuar</a>
         </div>
       </div>
@@ -96,32 +91,44 @@
     ></app-flux-choice-two>
   </div>
 
-  <div class="initial-data__screen-7 {{screens[7]}}" *ngIf="screens[7]=='visible' || 'slide-out-left'">
+  <div class="initial-data__screen-7 {{screens[7]}}" *ngIf="screens[7].includes('visible')">
     <app-loading-screen (onContinue)="goToScreen(7, 8)"></app-loading-screen>
   </div>
 
-  <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8]=='visible' || 'slide-out-left'">
-    <app-result-screen (onContinue)="goToScreen(8, 9)"></app-result-screen>
+  <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8].includes('visible')">
+    <app-result-screen
+      (onContinue)="goToScreen(8, 9)"
+      [header]="'<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>'"
+      [title]="'Desafortunadamente, nuestro sistema ha detectado que tu proyecto solar aún no tiene una factibilidad segura'">
+    </app-result-screen>
   </div>
 
-  <div class="initial-data__screen-9 {{screens[9]}}" *ngIf="screens[9]=='visible' || 'slide-out-left'">
+  <div class="initial-data__screen-9 {{screens[9]}}" *ngIf="screens[9].includes('visible')">
     <app-contact-form></app-contact-form>
   </div>
 
-  <div class="initial-data__screen-10 {{screens[10]}}">
+  <div class="initial-data__screen-10 {{screens[10]}}" *ngIf="screens[10].includes('visible')">
     <app-loading-screen (onContinue)="goToScreen(10, 11)"></app-loading-screen>
   </div>
 
-  <div class="initial-data__screen-11 {{screens[11]}}">
-    <app-result-screen (onContinue)="goToScreen(11, 12)"></app-result-screen>
+  <div class="initial-data__screen-11 {{screens[11]}}" *ngIf="screens[11].includes('visible')">
+    <app-result-screen
+      (onContinue)="goToScreen(11, 12)"
+      [header]="'<p><span class=\'color-lup--violet-light\'>¡Felicidades!</p>'"
+      [title]="'Haz comenzado el camino para disfrutar de la energía limpia, renovable y gratuita del sol'"
+      [subtitle]="'Tu proyecto tiene un preaprobado, su factibilidad debe ser analizada por nuestro equipo de profesionales'"></app-result-screen>
   </div>
 
-  <div class="initial-data__screen-12 {{screens[12]}}">
-    <app-contact-form></app-contact-form>
+  <div class="initial-data__screen-12 {{screens[12]}}" *ngIf="screens[12].includes('visible')">
+    <app-contact-form (onContinue)="goToScreen(12, 13)">
+    </app-contact-form>
   </div>
 
-  <div class="initial-data__screen-13 {{screens[13]}}">
-    <app-contact-form></app-contact-form>
+  <div class="initial-data__screen-13 {{screens[13]}}" *ngIf="screens[13].includes('visible')">
+    <app-final-screen
+      [title]="'Tu proyecto será evaluado'"
+      (onStart)="goToLanding()">
+    </app-final-screen>
   </div>
 
 </div>

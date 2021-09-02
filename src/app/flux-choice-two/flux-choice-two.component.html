@@ -35,17 +35,26 @@
           </div>
         </div>
         <div class="flux-two__btn-next text-center">
-          <a class="btn-navigation btn-navigation--violet" (click)="continue()">continuar</a>
+          <a class="btn-navigation btn-navigation--violet" (click)="showMiniLoading()">continuar</a>
         </div>
       </div>
       <div class="flux-two__btn-back">
         <a class="btn-navigation btn-navigation--violet" (click)="goBack()">anterior</a>
       </div>
     </div>
-    <div class="col-12 col-md-5 text-end flux-two__subtitle">
-      De acuerdo a los datos que proporcionaste<br/>
-      este es el <span class="openSansBold">valor aproximado</span> para la instalación<br>
-      del proyecto solar que evolti financiaría
+    <div class="col-12 col-md-5 flux-two__right-col">
+      <div class="flux-two__subtitle text-end">
+        De acuerdo a los datos que proporcionaste<br/>
+        este es el <span class="openSansBold">valor aproximado</span> para la instalación<br>
+        del proyecto solar que evolti financiaría
+      </div>
+      <div class="flux-two__process" [class.scale-in-center]="isLoading || isResultReady">
+        <app-mini-loading *ngIf="isLoading"
+          (onContinue)="finishedLoading()"></app-mini-loading>
+        <app-mini-result *ngIf="isResultReady"
+          (onContinue)="continue()"
+          ></app-mini-result>
+      </div>
     </div>
   </div>
 </div>
