@@ -1,83 +1,36 @@
 @import "src/styles/styles"
 
-.initial-data__container
-  position: relative
-  >*
-    position: absolute
-    height: 100vh
-    width: 100vw
-
-.initial-data__screen-1, .initial-data__screen-2
-  background: transparent linear-gradient(270deg, #510CA8 0%, #2B054A 100%) 0% 0% no-repeat padding-box
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  // if you need to disable these screens
-  // display: none
-
-.initial-data__screen-0, .initial-data__screen-2
-  display: flex
-  flex-direction: column
-  z-index: 1000
-
-.initial-data__screen-1
-  z-index: 10
-
-.initial-data__screen-2
-  z-index: 9
-
-.initial-data__screen-3
-  // if you want to disable this screen
-  // display: none
-  background: white
-  z-index: 8
-  .container-fluid
-    margin-top: 117px
-  &__description-1, &__description-2
-    font-family: "Open Sans", sans-serif
-  &__description-1
-    font-size: 25px
-    color: $lup-dark-grey
-  &__description-2
-    color: $lup-violet-light
-    font-size: 20px
-    margin-bottom: 62px
-  &__description-3
-    display: flex
-    justify-content: flex-end
-    &--image
-      background: red
-      width: 200px
-      height: 200px
-
-.initial-data__screen-4
-  background: white
-  z-index: 7
-
-.initial-data__screen-5
-  background: white
-  z-index: 6
-
-.initial-data__screen-6
-  background: white
-  z-index: 5
-
-.initial-data__screen-7
-  background: transparent linear-gradient(270deg, #510CA8 0%, #2B054A 100%) 0% 0% no-repeat padding-box
-  z-index: 4
-
-.initial-data__screen-8
-  background: green
-  z-index: 3
-
-.initial-data__screen-9
-  background: green
-  z-index: 2
-
-.initial-data__screen-10
-  background: green
-  z-index: 1
+.initial-data
+  &__container
+    position: relative
+    >*
+      position: absolute
+      height: 100vh
+      width: 100vw
+  &__screen
+    &-3, &-4, &-5, &-6, &-8, &-9, &-11
+      background: white
+    &-3
+      .container-fluid
+        margin-top: 117px
+        &__description-1, &__description-2
+          font-family: "Open Sans", sans-serif
+        &__description-1
+          font-size: 25px
+          color: $lup-dark-grey
+        &__description-2
+          color: $lup-violet-light
+          font-size: 20px
+          margin-bottom: 62px
+        &__description-3
+          display: flex
+          justify-content: flex-end
+          &--image
+            @include bill
+            width: 318px
+            height: 330px
+    &-1, &-2, &-7, &-10, &-13
+      background: transparent linear-gradient(270deg, #510CA8 0%, #2B054A 100%) 0% 0% no-repeat padding-box
 
 // overrides
 .lup-form__input

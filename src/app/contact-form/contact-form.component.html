@@ -1,1 +1,60 @@
-<p>contact-form works!</p>
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tus </span><span class=\'color-lup--yellow\'>datos de contacto</span></p>'"
+  [fluxStep]="3">
+</app-flux-status-header>
+<div class="contact-form__container">
+  <div class="contact-form__form">
+      <div class="lup-form">
+        <div class="lup-form__field">
+          <label for="input1">
+            Nombre completo
+          </label>
+          <input id="input1" class="lup-form__input" type="number"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input2">
+            Celular
+          </label>
+          <input id="input2" class="lup-form__input" type="number"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input3">
+            E-mail
+          </label>
+          <input id="input3" class="lup-form__input" type="number"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input4">
+            País
+          </label>
+          <input id="input4" class="lup-form__input" type="number"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input5">
+            Dirección
+          </label>
+          <input id="input5" class="lup-form__input" type="number" placeholder="Carr 00a #00a 00"/>
+        </div>
+      </div>
+    </div>
+  <div class="contact-form__footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-5">
+          <div class="lup-checkbox">
+            <input type="radio" id="dataTreatment"
+                   name="nature" value="dataTreatment">
+            <label for="dataTreatment">
+              Acepto las políticas de tratamiento de datos
+            </label>
+          </div>
+        </div>
+        <div class="col-12 col-md-5 text-end">
+          <button class="btn btn-link btn-navigation btn-navigation--violet btn-navigation--small btn-navigation--left" (click)="back()">anterior</button>
+          <button class="btn btn-link btn-navigation btn-navigation--violet" (click)="continue()">continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -18,6 +18,9 @@ import { FluxChoiceOneComponent } from './flux-choice-one/flux-choice-one.compon
 import { FluxChoiceTwoComponent } from './flux-choice-two/flux-choice-two.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { MiniLoadingComponent } from './mini-loading/mini-loading.component';
+import { MiniResultComponent } from './mini-result/mini-result.component';
+import { FinalScreenComponent } from './final-screen/final-screen.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     WelcomeScreenTwoComponent,
     FluxChoiceOneComponent,
     FluxChoiceTwoComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MiniLoadingComponent,
+    MiniResultComponent,
+    FinalScreenComponent
   ],
   imports: [
     BrowserModule,

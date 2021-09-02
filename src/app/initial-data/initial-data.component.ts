@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-initial-data',
@@ -8,28 +9,30 @@ import {HttpClient} from "@angular/common/http";
 })
 export class InitialDataComponent implements OnInit {
 
-  screens = ['no','visible','','','','','','','','','', ''];
+  resetScreens = ['no','','','','','','','','','','','','','','','',''];
+  screens = ['no','visible','','','','','','','','','','','','','','',''];
 
   lastMonthBill = '';
   lastMonthEnergyUsage = '';
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
-    console.log('screens: ', this.screens);
+    console.log('going to screen: ', screenNumber);
+    console.log('from screen: ', currentScreen);
+    this.screens = this.resetScreens;
     if (currentScreen < screenNumber) {
-      this.screens = ['no','','','','','','','','','','', ''];
-      this.screens[currentScreen] = 'visible slide-out-left';
+      this.screens[currentScreen] = 'visible slide-out-left on-top-of-god';
       this.screens[screenNumber] = 'visible';
     } else {
-      this.screens = ['no','','','','','','','','','','', ''];
       this.screens[currentScreen] = 'visible';
-      this.screens[screenNumber] = 'visible slide-in-left';
+      this.screens[screenNumber] = 'visible slide-in-left on-top-of-god';
     }
   }
 
@@ -46,9 +49,16 @@ export class InitialDataComponent implements OnInit {
 
   calculateAndContinue() {
     this.goToScreen(3, 4);
-    /*this.consultAvailability().then((result) => {
+    this.consultAvailability().then((result) => {
       console.log('respuesta: ', JSON.parse(result));
-      //
-    });*/
+      this.goToScreen(3, 4);
+    }).catch((error) => {
+      console.log('error: ', error);
+      this.goToScreen(3, 4);
+    });
+  }
+
+  goToLanding() {
+    this.router.navigate(['']);
   }
 }
