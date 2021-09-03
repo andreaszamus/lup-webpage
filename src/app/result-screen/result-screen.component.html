@@ -12,10 +12,9 @@
         <div class="result-screen__subtitle text-center">
           {{subtitle}}
         </div>
-        <a class="btn-navigation btn-navigation--violet btn-navigation--go"
-          (click)="continue()">
-          ¿Deseas continuar con el proceso?
-        </a>
+        <button class="btn btn-link btn-navigation--go"
+          (click)="continue()">¿Deseas continuar con el proceso?
+        </button>
       </div>
     </div>
   </div>
@@ -23,7 +22,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 offset-md-1">
-      <a class="btn-navigation btn-navigation--violet btn-navigation--back" (click)="back()">anterior</a>
+      <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+              (click)="back()"></button>
     </div>
   </div>
 </div>

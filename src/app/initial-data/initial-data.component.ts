@@ -15,6 +15,26 @@ export class InitialDataComponent implements OnInit {
   lastMonthBill = '';
   lastMonthEnergyUsage = '';
 
+  resultText =  {
+    header: '',
+    title: '',
+    subtitle: ''
+  };
+
+  successResponse = {
+    header: '<p><span class=\'color-lup--violet-dark\'>¡Felicidades!</p>',
+    title: '<p><span class=\'color-lup--violet-dark\'>Haz comenzado por el camino para disfrutar de la energía limpia, renovable y gratuita del <span class=\'color-lup--yellow\'>sol</span></p>',
+    subtitle: 'Tu proyecto tiene un preaprobado, su factibilidad debe ser analizada por nuestro equipo de profesionales'
+  };
+
+  errorResponse = {
+    header: '<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>',
+    title: 'Desafortunadamente, nuestro sistema ha detectado que tu proyecto solar aún no tiene una factibilidad segura',
+    subtitle: 'Sin embargo, no te desanimes, te contactaremos para encontrar como asesorarte en la financiación del mismo'
+  };
+
+
+
   constructor(
     private httpClient: HttpClient,
     private router: Router
@@ -37,28 +57,42 @@ export class InitialDataComponent implements OnInit {
   }
 
   consultAvailability(): Promise<any> {
-
-    const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
+    // const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
+    const serviceURL = 'https://run.mocky.io/v3/2c8c1e75-4101-44ea-a4a8-5d6d627cd1f1';
     const serviceBody = {
       'lastMonthBill': this.lastMonthBill,
-      lastMonthEnergyUsage: 456
+      lastMonthEnergyUsage: this.lastMonthEnergyUsage
     };
-    console.log('test:', serviceBody);
     return this.httpClient.post(serviceURL, serviceBody).toPromise()
   }
 
   calculateAndContinue() {
-    this.goToScreen(3, 4);
     this.consultAvailability().then((result) => {
-      console.log('respuesta: ', JSON.parse(result));
+      console.log('respuesta: ', result);
+      result.data.irr=0;
+      if(result.data.irr > 0.17) {
+        console.log('success');
+        this.setResultText(this.successResponse);
+      } else {
+        console.log('too bad');
+        this.setResultText(this.errorResponse);
+      }
       this.goToScreen(3, 4);
     }).catch((error) => {
       console.log('error: ', error);
-      this.goToScreen(3, 4);
+      // this.goToScreen(3, 4);
     });
   }
 
   goToLanding() {
     this.router.navigate(['']);
+  }
+
+  isAllowedToContinue(): boolean {
+    return !!this.lastMonthBill && !!this.lastMonthEnergyUsage;
+  }
+
+  setResultText(resultTexts: any): void {
+    this.resultText = resultTexts;
   }
 }

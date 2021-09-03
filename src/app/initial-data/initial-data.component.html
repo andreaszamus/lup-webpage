@@ -29,13 +29,24 @@
               <label for="input1">
                 ¿Cuánto pagaste en tu última<br/>factura de energía?
               </label>
-              <input id="input1" class="lup-form__input" type="number" placeholder="500.000" [(ngModel)]="lastMonthBill"/>
+              <input id="input1"
+                     class="lup-form__input" type="text"
+                     placeholder="500.000"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="lastMonthBill"/>
             </div>
             <div class="lup-form__field">
               <label for="input2">
                 ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
               </label>
-              <input id="input2" class="lup-form__input" type="number" placeholder="181kWh" [ngModel]="lastMonthEnergyUsage"/>
+              <input id="input2" class="lup-form__input"
+                     type="text" placeholder="181kWh"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="lastMonthEnergyUsage"/>
             </div>
             <div class="lup-form__field">
               <label for="input3">
@@ -62,9 +73,10 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 offset-md-1 col-md-10 text-end">
-          <a class="btn-navigation btn-navigation--violet" (click)="calculateAndContinue()">continuar</a>
+      <div class="row {{isAllowedToContinue()}}">
+        <div class="col-12 offset-md-1 col-md-10 text-end" *ngIf="isAllowedToContinue()">
+          <button class="btn btn-link btn-navigation btn-navigation--violet-right"
+                  (click)="calculateAndContinue()"></button>
         </div>
       </div>
     </div>
@@ -98,8 +110,9 @@
   <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8].includes('visible')">
     <app-result-screen
       (onContinue)="goToScreen(8, 9)"
-      [header]="'<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>'"
-      [title]="'Desafortunadamente, nuestro sistema ha detectado que tu proyecto solar aún no tiene una factibilidad segura'">
+      [header]="resultText.header"
+      [title]="resultText.title"
+      [subtitle]="resultText.subtitle">
     </app-result-screen>
   </div>
 

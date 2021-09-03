@@ -16,11 +16,12 @@ import { WelcomeScreenOneComponent } from './welcome-screen-one/welcome-screen-o
 import { WelcomeScreenTwoComponent } from './welcome-screen-two/welcome-screen-two.component';
 import { FluxChoiceOneComponent } from './flux-choice-one/flux-choice-one.component';
 import { FluxChoiceTwoComponent } from './flux-choice-two/flux-choice-two.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { MiniLoadingComponent } from './mini-loading/mini-loading.component';
 import { MiniResultComponent } from './mini-result/mini-result.component';
 import { FinalScreenComponent } from './final-screen/final-screen.component';
+import { DigitOnlyModule } from "@uiowa/digit-only";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { FinalScreenComponent } from './final-screen/final-screen.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DigitOnlyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
