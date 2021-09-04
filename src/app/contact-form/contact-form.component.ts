@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,6 +9,8 @@ export class ContactFormComponent implements OnInit {
 
   @Output() onGoBack = new EventEmitter<string>();
   @Output() onContinue = new EventEmitter<string>();
+
+  @ViewChild('input1') input1: ElementRef | undefined;
 
   constructor() { }
 
@@ -21,5 +23,11 @@ export class ContactFormComponent implements OnInit {
 
   continue(): void {
     this.onContinue.emit();
+  }
+
+  captureFile(captureFileNumber: number) {
+    if (captureFileNumber == 1) {
+      this.input1?.nativeElement.click();
+    }
   }
 }

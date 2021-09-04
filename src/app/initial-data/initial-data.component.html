@@ -112,7 +112,9 @@
       (onContinue)="goToScreen(8, 9)"
       [header]="resultText.header"
       [title]="resultText.title"
-      [subtitle]="resultText.subtitle">
+      [subtitle]="resultText.subtitle"
+      (onBack)="goToScreen(9, 3)"
+      [isSuccess]="resultText.isSuccess">
     </app-result-screen>
   </div>
 

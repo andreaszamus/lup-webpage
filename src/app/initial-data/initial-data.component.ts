@@ -10,24 +10,27 @@ import {Router} from "@angular/router";
 export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
-  screens = ['no','visible','','','','','','','','','','','','','','',''];
+  screens = ['no','','','','','','','','visible','','','','','','','',''];
 
   lastMonthBill = '';
   lastMonthEnergyUsage = '';
 
-  resultText =  {
+  resultText = {
+    isSuccess: false,
     header: '',
     title: '',
     subtitle: ''
   };
 
   successResponse = {
+    isSuccess: true,
     header: '<p><span class=\'color-lup--violet-dark\'>¡Felicidades!</p>',
     title: '<p><span class=\'color-lup--violet-dark\'>Haz comenzado por el camino para disfrutar de la energía limpia, renovable y gratuita del <span class=\'color-lup--yellow\'>sol</span></p>',
     subtitle: 'Tu proyecto tiene un preaprobado, su factibilidad debe ser analizada por nuestro equipo de profesionales'
   };
 
   errorResponse = {
+    isSuccess: false,
     header: '<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>',
     title: 'Desafortunadamente, nuestro sistema ha detectado que tu proyecto solar aún no tiene una factibilidad segura',
     subtitle: 'Sin embargo, no te desanimes, te contactaremos para encontrar como asesorarte en la financiación del mismo'
@@ -44,8 +47,6 @@ export class InitialDataComponent implements OnInit {
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
-    console.log('going to screen: ', screenNumber);
-    console.log('from screen: ', currentScreen);
     this.screens = this.resetScreens;
     if (currentScreen < screenNumber) {
       this.screens[currentScreen] = 'visible slide-out-left on-top-of-god';
@@ -57,11 +58,11 @@ export class InitialDataComponent implements OnInit {
   }
 
   consultAvailability(): Promise<any> {
-    // const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
-    const serviceURL = 'https://run.mocky.io/v3/2c8c1e75-4101-44ea-a4a8-5d6d627cd1f1';
+    const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
+    // const serviceURL = 'https://run.mocky.io/v3/2c8c1e75-4101-44ea-a4a8-5d6d627cd1f1';
     const serviceBody = {
-      'lastMonthBill': this.lastMonthBill,
-      lastMonthEnergyUsage: this.lastMonthEnergyUsage
+      'lastMonthBill': parseInt(this.lastMonthBill),
+      lastMonthEnergyUsage: parseInt(this.lastMonthEnergyUsage)
     };
     return this.httpClient.post(serviceURL, serviceBody).toPromise()
   }
@@ -69,7 +70,6 @@ export class InitialDataComponent implements OnInit {
   calculateAndContinue() {
     this.consultAvailability().then((result) => {
       console.log('respuesta: ', result);
-      result.data.irr=0;
       if(result.data.irr > 0.17) {
         console.log('success');
         this.setResultText(this.successResponse);
@@ -77,7 +77,7 @@ export class InitialDataComponent implements OnInit {
         console.log('too bad');
         this.setResultText(this.errorResponse);
       }
-      this.goToScreen(3, 4);
+      this.goToScreen(3, 8);
     }).catch((error) => {
       console.log('error: ', error);
       // this.goToScreen(3, 4);

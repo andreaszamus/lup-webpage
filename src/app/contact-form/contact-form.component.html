@@ -35,6 +35,28 @@
           </label>
           <input id="input5" class="lup-form__input" type="number" placeholder="Carr 00a #00a 00"/>
         </div>
+        <div class="lup-form__field">
+          <label for="inputFile1">
+            Adjunta tu última factura de servicios públicos
+          </label>
+          <input #input1 type="file" id="inputFile1" class="file-upload"
+                 onchange="console.log(event.target.files)">
+          <button
+            class="lup-form__upload-button"
+            (click)="captureFile(1);"
+          >PDF, JPG, PNG</button>
+        </div>
+        <div class="lup-form__field">
+          <label for="inputFile2">
+            Adjunta la cotización del proyecto a financiar
+          </label>
+          <input type="file" id="inputFile2" class="file-upload"
+                 onchange="console.log(event.target.files)">
+          <button
+            class="lup-form__upload-button"
+            (click)="captureFile(2);"
+          >PDF, JPG, PNG</button>
+        </div>
       </div>
     </div>
   <div class="contact-form__footer">
