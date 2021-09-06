@@ -10,6 +10,10 @@ export class FluxChoiceOneComponent implements OnInit {
   @Output() onGoBack = new EventEmitter<string>();
   @Output() onContinue = new EventEmitter<string>();
 
+  companyName = '';
+  monthlyEnergy = '';
+  totalPrice = '';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,6 +25,10 @@ export class FluxChoiceOneComponent implements OnInit {
 
   continue(): void {
     this.onContinue.emit();
+  }
+
+  isValidData(): boolean {
+    return !!this.companyName && !!this.monthlyEnergy && !!this.totalPrice;
   }
 
 }

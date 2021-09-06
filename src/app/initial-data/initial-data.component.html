@@ -8,78 +8,9 @@
       (onContinue)="goToScreen(2, 3)"></app-welcome-screen-two>
   </div>
   <div class="initial-data__screen-3 {{screens[3]}}" *ngIf="screens[3].includes('visible')">
-    <app-flux-status-header
-      [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'"
-      [fluxStep]="1">
-    </app-flux-status-header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 col-md-6 offset-sm-1">
-          <div class="lup-checkbox">
-            <div class="lup-checkbox__title">Eres</div>
-            <input type="radio" id="personaNatural"
-                   name="nature" value="pn">
-            <label for="personaNatural">Persona Natural</label>
-            <input type="radio" id="personaJuridica"
-                   name="nature" value="pj">
-            <label for="personaJuridica">Persona Jurídica</label>
-          </div>
-          <div class="lup-form">
-            <div class="lup-form__field">
-              <label for="input1">
-                ¿Cuánto pagaste en tu última<br/>factura de energía?
-              </label>
-              <input id="input1"
-                     class="lup-form__input" type="text"
-                     placeholder="500.000"
-                     inputmode="numeric"
-                     pattern="[0-9]*"
-                     digitOnly
-                     [(ngModel)]="lastMonthBill"/>
-            </div>
-            <div class="lup-form__field">
-              <label for="input2">
-                ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
-              </label>
-              <input id="input2" class="lup-form__input"
-                     type="text" placeholder="181kWh"
-                     inputmode="numeric"
-                     pattern="[0-9]*"
-                     digitOnly
-                     [(ngModel)]="lastMonthEnergyUsage"/>
-            </div>
-            <div class="lup-form__field">
-              <label for="input3">
-                ¿En qué ciudad se ubicaría tu<br/>proyecto solar?
-              </label>
-              <input id="input3" class="lup-form__input" type="number" placeholder="Medellín"/>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4 initial-data__screen-3__description-1 text-end">
-          <div class="initial-data__screen-3__description-1">
-            <p>
-              <span class="openSansBold">Los datos señalados </span>podrás encontrarlos<br/>
-              en tu factura de la siguiente forma:
-            </p>
-            <br/>
-          </div>
-          <div class="initial-data__screen-3__description-2">
-            (su ubicación en la factura depende<br/>
-            de la empresa prestadora del servicio)
-          </div>
-          <div class="initial-data__screen-3__description-3">
-            <div class="initial-data__screen-3__description-3--image"></div>
-          </div>
-        </div>
-      </div>
-      <div class="row {{isAllowedToContinue()}}">
-        <div class="col-12 offset-md-1 col-md-10 text-end" *ngIf="isAllowedToContinue()">
-          <button class="btn btn-link btn-navigation btn-navigation--violet-right"
-                  (click)="calculateAndContinue()"></button>
-        </div>
-      </div>
-    </div>
+    <app-energy-screen
+      (onContinueOK)="setResultTextOK()"
+      (onContinueNotOk)="setResultTextNotOK()"></app-energy-screen>
   </div>
 
   <div class="initial-data__screen-4 {{screens[4]}}" *ngIf="screens[4].includes('visible')">
@@ -109,17 +40,17 @@
 
   <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8].includes('visible')">
     <app-result-screen
-      (onContinue)="goToScreen(8, 9)"
+      (onContinue)="goToScreen(8, 12)"
       [header]="resultText.header"
       [title]="resultText.title"
       [subtitle]="resultText.subtitle"
-      (onBack)="goToScreen(9, 3)"
+      (onBack)="goToScreen(8, 3)"
       [isSuccess]="resultText.isSuccess">
     </app-result-screen>
   </div>
 
   <div class="initial-data__screen-9 {{screens[9]}}" *ngIf="screens[9].includes('visible')">
-    <app-contact-form></app-contact-form>
+    <app-contact-form (onContinue)="goToScreen(9, 11)"></app-contact-form>
   </div>
 
   <div class="initial-data__screen-10 {{screens[10]}}" *ngIf="screens[10].includes('visible')">
@@ -130,7 +61,8 @@
     <app-result-screen
       (onContinue)="goToScreen(11, 12)"
       [header]="'<p><span class=\'color-lup--violet-light\'>¡Felicidades!</p>'"
-      [title]="'Haz comenzado el camino para disfrutar de la energía limpia, renovable y gratuita del sol'"
+      [title]="'Haz comenzado el camino para disfrutar de la energía limpia, renovable y gratuita del <span class=\'color-lup-yellow\'>sol</span>'"
+      [isSuccess]="true"
       [subtitle]="'Tu proyecto tiene un preaprobado, su factibilidad debe ser analizada por nuestro equipo de profesionales'"></app-result-screen>
   </div>
 
@@ -141,7 +73,7 @@
 
   <div class="initial-data__screen-13 {{screens[13]}}" *ngIf="screens[13].includes('visible')">
     <app-final-screen
-      [title]="'Tu proyecto será evaluado'"
+      [title]="finalScreenText.title"
       (onStart)="goToLanding()">
     </app-final-screen>
   </div>

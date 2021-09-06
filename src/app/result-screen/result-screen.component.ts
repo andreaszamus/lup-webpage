@@ -23,7 +23,7 @@ export class ResultScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // test only
+    /*
     const successResponse = {
       isSuccess: true,
       header: '<p><span class=\'color-lup--violet-dark\'>¡Felicidades!</p>',
@@ -38,7 +38,7 @@ export class ResultScreenComponent implements OnInit {
     this.amount = successResponse.amount;
     this.isSuccess = successResponse.isSuccess;
     this.savings = successResponse.savings;
-    //
+    */
     if (this.isSuccess) {
       this.textAlignmentClass = 'offset-md-1 col-md-5 text-left'
     } else {

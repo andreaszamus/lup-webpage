@@ -1,0 +1,25 @@
+@import "src/styles/styles"
+
+.container-fluid
+  margin-top: 117px
+.energy-screen
+  &__description-1, &__description-2
+    font-family: "Open Sans", sans-serif
+  &__description-1
+    font-size: 25px
+    color: $lup-dark-grey
+  &__description-2
+    color: $lup-violet-light
+    font-size: 20px
+    margin-bottom: 62px
+  &__description-3
+    display: flex
+    justify-content: flex-end
+    &--image
+      @include bill
+      width: 318px
+      height: 330px
+
+// overrides
+.lup-checkbox
+  margin-bottom: 72px

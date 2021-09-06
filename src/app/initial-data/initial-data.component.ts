@@ -10,10 +10,7 @@ import {Router} from "@angular/router";
 export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
-  screens = ['no','','','','','','','','visible','','','','','','','',''];
-
-  lastMonthBill = '';
-  lastMonthEnergyUsage = '';
+  screens = ['no','','','','','','','','','','','','','visible'];
 
   resultText = {
     isSuccess: false,
@@ -36,14 +33,29 @@ export class InitialDataComponent implements OnInit {
     subtitle: 'Sin embargo, no te desanimes, te contactaremos para encontrar como asesorarte en la financiación del mismo'
   };
 
+  finalScreenText = {
+    title: ''
+  }
 
+  finalScreenSuccess = {
+    title: 'Tienes un proyecto en camino'
+  }
+
+  finalScreenNotSuccess = {
+    title: 'Tu proyecto será evaluado'
+  }
 
   constructor(
-    private httpClient: HttpClient,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.resultText = {
+      isSuccess: false,
+      header: '',
+      title: '',
+      subtitle: ''
+    };
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
@@ -57,42 +69,19 @@ export class InitialDataComponent implements OnInit {
     }
   }
 
-  consultAvailability(): Promise<any> {
-    const serviceURL = 'https://q3n07s9r8f.execute-api.sa-east-1.amazonaws.com/dev/ppa-auto';
-    // const serviceURL = 'https://run.mocky.io/v3/2c8c1e75-4101-44ea-a4a8-5d6d627cd1f1';
-    const serviceBody = {
-      'lastMonthBill': parseInt(this.lastMonthBill),
-      lastMonthEnergyUsage: parseInt(this.lastMonthEnergyUsage)
-    };
-    return this.httpClient.post(serviceURL, serviceBody).toPromise()
-  }
-
-  calculateAndContinue() {
-    this.consultAvailability().then((result) => {
-      console.log('respuesta: ', result);
-      if(result.data.irr > 0.17) {
-        console.log('success');
-        this.setResultText(this.successResponse);
-      } else {
-        console.log('too bad');
-        this.setResultText(this.errorResponse);
-      }
-      this.goToScreen(3, 8);
-    }).catch((error) => {
-      console.log('error: ', error);
-      // this.goToScreen(3, 4);
-    });
-  }
-
   goToLanding() {
     this.router.navigate(['']);
   }
 
-  isAllowedToContinue(): boolean {
-    return !!this.lastMonthBill && !!this.lastMonthEnergyUsage;
+  setResultTextOK(): void {
+    this.finalScreenText = this.finalScreenSuccess
+    this.resultText = this.successResponse;
+    this.goToScreen(3, 4);
   }
 
-  setResultText(resultTexts: any): void {
-    this.resultText = resultTexts;
+  setResultTextNotOK(): void {
+    this.finalScreenText = this.finalScreenNotSuccess;
+    this.resultText = this.errorResponse;
+    this.goToScreen(3, 8);
   }
 }
