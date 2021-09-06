@@ -22,6 +22,7 @@ import { MiniLoadingComponent } from './mini-loading/mini-loading.component';
 import { MiniResultComponent } from './mini-result/mini-result.component';
 import { FinalScreenComponent } from './final-screen/final-screen.component';
 import { DigitOnlyModule } from "@uiowa/digit-only";
+import { EnergyScreenComponent } from './energy-screen/energy-screen.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DigitOnlyModule } from "@uiowa/digit-only";
     ContactFormComponent,
     MiniLoadingComponent,
     MiniResultComponent,
-    FinalScreenComponent
+    FinalScreenComponent,
+    EnergyScreenComponent
   ],
   imports: [
     BrowserModule,

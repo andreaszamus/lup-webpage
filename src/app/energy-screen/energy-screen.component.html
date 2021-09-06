@@ -1,0 +1,73 @@
+<app-flux-status-header
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>energía</span></p>'"
+  [fluxStep]="1">
+</app-flux-status-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-sm-1">
+      <div class="lup-checkbox">
+        <div class="lup-checkbox__title">Eres</div>
+        <input type="radio" id="personaNatural"
+               name="nature" value="pn">
+        <label for="personaNatural">Persona Natural</label>
+        <input type="radio" id="personaJuridica"
+               name="nature" value="pj">
+        <label for="personaJuridica">Persona Jurídica</label>
+      </div>
+      <div class="lup-form">
+        <div class="lup-form__field">
+          <label for="input1">
+            * ¿Cuánto pagaste en tu última<br/>factura de energía?
+          </label>
+          <input id="input1"
+                 class="lup-form__input"
+                 type="text"
+                 placeholder="500.000"
+                 inputmode="numeric"
+                 pattern="[0-9]*"
+                 digitOnly
+                 [(ngModel)]="lastMonthBill"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input2">
+            * ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
+          </label>
+          <input id="input2" class="lup-form__input"
+                 type="text" placeholder="181kWh"
+                 inputmode="numeric"
+                 pattern="[0-9]*"
+                 digitOnly
+                 [(ngModel)]="lastMonthEnergyUsage"/>
+        </div>
+        <div class="lup-form__field">
+          <label for="input3">
+            ¿En qué ciudad se ubicaría tu<br/>proyecto solar?
+          </label>
+          <input id="input3" class="lup-form__input" type="number" placeholder="Medellín"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 energy-screen__description-1 text-end">
+      <div class="energy-screen__description-1">
+        <p>
+          <span class="openSansBold">Los datos señalados </span>podrás encontrarlos<br/>
+          en tu factura de la siguiente forma:
+        </p>
+        <br/>
+      </div>
+      <div class="energy-screen__description-2">
+        (su ubicación en la factura depende<br/>
+        de la empresa prestadora del servicio)
+      </div>
+      <div class="energy-screen__description-3">
+        <div class="energy-screen__description-3--image"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row {{isAllowedToContinue()}}">
+    <div class="col-12 offset-md-1 col-md-10 text-end" *ngIf="isAllowedToContinue()">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-right"
+              (click)="calculateAndContinue()"></button>
+    </div>
+  </div>
+</div>

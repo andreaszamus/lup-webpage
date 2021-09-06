@@ -15,16 +15,43 @@
           Hemos enviado una<br>
           confirmación a tu e-mail
         </div>
-        <button class="final-screen__resend-email" (click)="resendEmail()">
+        <button class="final-screen__resend-email"
+                (click)="resendEmail()"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
           No me llegó el mensaje
         </button>
       </div>
       <div class="col-12 col-md-5 text-end">
-        <button class="btn btn-link btn-navigation btn-navigation--white btn-navigation--small btn-navigation--left"
+        <button class="btn btn-link btn-navigation btn-navigation--white-left"
                 (click)="back()">
-          anterior
         </button>
-        <button class="btn btn-link btn-navigation btn-navigation--white" (click)="start()">Volver al inicio</button>
+        <button class="btn btn-link btn-navigation btn-navigation--start" (click)="start()"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="email__container">
+          <div class="email__text">
+            Por favor confirme su correo electrónico y reenviaremos el mensaje
+          </div>
+          <div class="email__label">
+            E-mail
+          </div>
+          <div class="email__data">
+            <input type="email" class="email__input"/>
+            <button class="email__button">Enviar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
