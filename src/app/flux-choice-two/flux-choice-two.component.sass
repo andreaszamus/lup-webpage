@@ -1,4 +1,5 @@
 @import "src/styles/styles"
+$separation: 46px
 
 .flux-two
   &__header
@@ -10,14 +11,19 @@
     color: $lup-dark-grey
     font-family: "Open Sans", sans-serif
     font-size: 25px
+  &__left-col
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    margin-right: $separation
+    margin-bottom: 100px
   &__box
     box-shadow: 0 3px 5px #48454D52
     border: 1px solid #CFCFCF
     border-radius: 49px
     width: 100%
     max-width: 674px
-    margin-bottom: 83px
-    padding: 56px 79px 50px 69px
+    padding: 56px 79px 0 69px
     &-title
       font-family: Montserrat-SemiBold, sans-serif
       font-size: 27px
@@ -42,7 +48,8 @@
   &__right-col
     display: flex
     flex-direction: column
-    align-items: flex-end
+    align-items: flex-start
+    margin-left: $separation
   &__process
     width: 687px
     height: 556px

@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-5">
+    <div class="col-12 offset-md-1 col-md-5 flux-two__left-col">
       <div class="flux-two__box">
         <div class="flux-two__box-title">
           ¿Tienes el tamaño del área, en metros cuadrados (mt ), donde se instalaría el proyecto ?
@@ -34,29 +34,31 @@
             </div>
           </div>
         </div>
-        <div class="flux-two__btn-next text-center">
-          <button class="btn btn-link btn-navigation btn-navigation--violet-right"
-                  (click)="showMiniLoading()"></button>
-        </div>
-      </div>
-      <div class="flux-two__btn-back">
-        <button class="btn btn-link btn-navigation btn-navigation--violet-left"
-                (click)="goBack()"></button>
       </div>
     </div>
     <div class="col-12 col-md-5 flux-two__right-col">
-      <div class="flux-two__subtitle text-end">
-        De acuerdo a los datos que proporcionaste<br/>
-        este es el <span class="openSansBold">valor aproximado</span> para la instalación<br>
-        del proyecto solar que evolti financiaría
+      <div class="flux-two__subtitle">
+        Al conocer el área disponible podremos<br>
+         confirmarte que cuentas con el espacio<br>
+        requerido para la instalación del sistema
       </div>
-      <div class="flux-two__process" [class.scale-in-center]="isLoading || isResultReady">
+      <div class="flux-two__process" [class.scale-in-center]="isLoading || isResultReady" *ngIf="false">
         <app-mini-loading *ngIf="isLoading"
           (onContinue)="finishedLoading()"></app-mini-loading>
         <app-mini-result *ngIf="isResultReady"
           (onContinue)="continue()"
           ></app-mini-result>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-5">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+              (click)="goBack()"></button>
+    </div>
+    <div class="col-12 col-md-5 text-end">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-right"
+              (click)="continue()"></button>
     </div>
   </div>
 </div>

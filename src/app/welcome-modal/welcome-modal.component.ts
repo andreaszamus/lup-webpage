@@ -17,13 +17,18 @@ export class WelcomeModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      this.onClickFirstScreen();
+    }, 1000);
   }
 
   onClickFirstScreen(): void {
     this.animationClassFirstScreen = 'fade-out';
     setTimeout(() => {
       this.showFirstScreen = false;
+      setTimeout(() => {
+        this.onClickSecondScreen();
+      }, 1000);
     }, 1500);
   }
 

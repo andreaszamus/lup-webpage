@@ -5,14 +5,21 @@
 <div class="container-fluid result-screen__container">
   <div class="row">
     <div class="col-12 {{textAlignmentClass}} result-screen__col"
-      [class.result-screen__col--success]="">
-      <div class="result-screen__title-container">
+      [class.result-screen__col--success]="isSuccess">
+      <div class="result-screen__title-container" [class.result-screen__title-container--not-success]="!isSuccess">
         <div class="result-screen__title"
              [innerHTML]="title"
-             [class.result-screen__title--success]="isSuccess"></div>
+             [class.result-screen__title--success]="isSuccess"
+             [class.result-screen__title--not-success]="!isSuccess"></div>
         <div class="result-screen__subtitle"
              [innerHTML]="subtitle"
              [class.result-screen__subtitle--success]="isSuccess"></div>
+        <div class="result-screen__warning" *ngIf="isSuccess">
+          <div class="result-screen__warning-icon"></div>
+          <div class="result-screen__warning-text">Este valor es indicativo y puede estar sujetos a<br>
+            cambios ya que es <span class="openSansBold">necesario hacer una<br/> verificación</span>
+            detallada y personal.</div>
+        </div>
       </div>
     </div>
     <div *ngIf="isSuccess" class="col-md-5 text-end result-screen__charge-col">

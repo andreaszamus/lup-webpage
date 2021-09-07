@@ -9,8 +9,7 @@
   </div>
   <div class="initial-data__screen-3 {{screens[3]}}" *ngIf="screens[3].includes('visible')">
     <app-energy-screen
-      (onContinueOK)="setResultTextOK()"
-      (onContinueNotOk)="setResultTextNotOK()"></app-energy-screen>
+      (onContinueOK)="saveEnergyData($event)"></app-energy-screen>
   </div>
 
   <div class="initial-data__screen-4 {{screens[4]}}" *ngIf="screens[4].includes('visible')">
@@ -23,7 +22,7 @@
   <div class="initial-data__screen-5 {{screens[5]}}" *ngIf="screens[5].includes('visible')">
     <app-flux-choice-one
       (onGoBack)="goToScreen(5, 4)"
-      (onContinue)="goToScreen(5, 7)"
+      (onContinue)="calculateAndContinueFluxOne($event)"
       ></app-flux-choice-one>
   </div>
 

@@ -1,10 +1,11 @@
 <app-flux-status-header
-  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>proyecto solar</span></p>'">
+  [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tu </span><span class=\'color-lup--yellow\'>proyecto solar</span></p>'"
+  [fluxStep]="2">
 </app-flux-status-header>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 offset-md-1 col-md-10">
-      <div class="flux-one__header">Ya tengo una cotización</div>
+      <div class="flux-one__header"></div>
     </div>
     <div class="col-12 text-center">
       <div class="flux-one__title">¿Quién es tu proveedor de paneles solares?</div>
@@ -22,14 +23,15 @@
                    class="lup-form__input"
                    type="text"
                    maxlength="21"
-                   [(ngModel)]="companyName"
+                   [(ngModel)]="developerName"
             />
           </div>
-          <div class="lup-form__field">
+          <div class="lup-form__field lup-form__field--mandatory">
             <label for="input2">
               ¿Cuánta energía <span class="color-lup--yellow">mensual</span> generaría<br/>
               tu proyecto en kilovatio/hora <span class="color-lup--violet-light">(kWh)</span>?
             </label>
+            <span>*</span>
             <input id="input2"
                    class="lup-form__input"
                    type="text"
@@ -37,13 +39,14 @@
                    inputmode="numeric"
                    pattern="[0-9]*"
                    digitOnly
-                   [(ngModel)]="monthlyEnergy"/>
+                   [(ngModel)]="monthlyProducedEnergy"/>
           </div>
-          <div class="lup-form__field">
+          <div class="lup-form__field lup-form__field--mandatory">
             <label for="input3">
               Ingresa el precio total<br/>
               del proyecto a financiar
             </label>
+            <span>*</span>
             <input id="input3"
                    class="lup-form__input"
                    type="text"
@@ -51,21 +54,26 @@
                    inputmode="numeric"
                    pattern="[0-9]*"
                    digitOnly
-                   [(ngModel)]="totalPrice"/>
+                   [(ngModel)]="projectTotalCost"/>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-sm-5 offset-sm-1">
-      <button class="btn btn-link btn-navigation btn-navigation--violet-left"
-              (click)="goBack()"></button>
-    </div>
-    <div class="col-12 col-sm-5 text-end" *ngIf="isValidData()">
-      <button class="btn btn-link btn-navigation btn-navigation--violet-right"
-         (click)="continue()"></button>
+    <div class="row">
+      <div class="col-12 col-sm-5 offset-sm-1">
+        <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+                (click)="goBack()"></button>
+      </div>
+      <div class="col-12 col-sm-5 text-end">
+        <div
+          *ngIf="!isValidData()"
+          class="form-alert">* Para continuar completa el formulario
+        </div>
+        <button
+          class="btn btn-link btn-navigation btn-navigation--violet-right"
+          *ngIf="isValidData()"
+          (click)="continue()"></button>
+      </div>
     </div>
   </div>
 </div>
-

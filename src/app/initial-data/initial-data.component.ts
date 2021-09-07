@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {LupRequestModel} from "../models/lup-request.model";
+import {LupService} from "../lup.service";
+import {EnergyInterface} from "../models/energy.interface";
+import {FluxOneInterface} from "../models/flux-one.interface";
 
 @Component({
   selector: 'app-initial-data',
@@ -10,7 +13,7 @@ import {Router} from "@angular/router";
 export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
-  screens = ['no','','','','','','','','','','','','','visible'];
+  screens = ['no','','','','','','','','','visible','','','',''];
 
   resultText = {
     isSuccess: false,
@@ -29,8 +32,8 @@ export class InitialDataComponent implements OnInit {
   errorResponse = {
     isSuccess: false,
     header: '<p><span class=\'color-lup--violet-light\'>¡Apenas estamos comenzando!</p>',
-    title: 'Desafortunadamente, nuestro sistema ha detectado que tu proyecto solar aún no tiene una factibilidad segura',
-    subtitle: 'Sin embargo, no te desanimes, te contactaremos para encontrar como asesorarte en la financiación del mismo'
+    title: 'Desafortunadamente, nuestro sistema <br> aún no ha detectado factibilidad para <br> tu proyecto solar',
+    subtitle: 'Sin embargo, no te desanimes, envíanos tus datos <br> para que un asesor pueda revisar tu proyecto'
   };
 
   finalScreenText = {
@@ -45,9 +48,14 @@ export class InitialDataComponent implements OnInit {
     title: 'Tu proyecto será evaluado'
   }
 
+  lupRequest: LupRequestModel;
+
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private lupService: LupService
+  ) {
+    this.lupRequest = new LupRequestModel(0, 0);
+  }
 
   ngOnInit(): void {
     this.resultText = {
@@ -56,6 +64,8 @@ export class InitialDataComponent implements OnInit {
       title: '',
       subtitle: ''
     };
+    this.finalScreenText = this.finalScreenNotSuccess
+    this.resultText = this.successResponse;
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
@@ -73,15 +83,35 @@ export class InitialDataComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  setResultTextOK(): void {
-    this.finalScreenText = this.finalScreenSuccess
-    this.resultText = this.successResponse;
-    this.goToScreen(3, 4);
+  calculateAndContinueFluxOne(event: any) {
+    console.log('flux one event: ', event);
+    const fluxOneData = JSON.parse(event) as FluxOneInterface;
+    this.lupRequest.monthlyProducedEnergy = parseInt(fluxOneData.monthlyProducedEnergy);
+    this.lupRequest.developerName = fluxOneData.developerName;
+    this.lupRequest.projectTotalCost = parseInt(fluxOneData.projectTotalCost);
+    console.log('lupParams:', this.lupRequest);
+    this.lupService.consultAvailability(this.lupRequest).then((result) => {
+      console.log('consultAvailability response: ', result);
+      if(result.data.irr > 0.17) {
+        console.log('success');
+        this.finalScreenText = this.finalScreenSuccess
+        this.resultText = this.successResponse;
+      } else {
+        this.finalScreenText = this.finalScreenNotSuccess;
+        this.resultText = this.errorResponse;
+      }
+      this.goToScreen(5, 7);
+    }).catch((error: any) => {
+      console.log('error: ', error);
+    });
   }
 
-  setResultTextNotOK(): void {
-    this.finalScreenText = this.finalScreenNotSuccess;
-    this.resultText = this.errorResponse;
-    this.goToScreen(3, 8);
+  saveEnergyData(event: any) {
+    console.log('energy event: ', event);
+    const lupRequest = JSON.parse(event) as EnergyInterface;
+    this.lupRequest.lastMonthEnergyUsage = parseInt(lupRequest.lastMonthEnergyUsage);
+    this.lupRequest.lastMonthBill = parseInt(lupRequest.lastMonthBill);
+    this.lupRequest.city = lupRequest.city;
+    this.goToScreen(3, 4);
   }
 }

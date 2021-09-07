@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FluxOneInterface} from "../models/flux-one.interface";
 
 @Component({
   selector: 'app-flux-choice-one',
@@ -10,9 +11,9 @@ export class FluxChoiceOneComponent implements OnInit {
   @Output() onGoBack = new EventEmitter<string>();
   @Output() onContinue = new EventEmitter<string>();
 
-  companyName = '';
-  monthlyEnergy = '';
-  totalPrice = '';
+  developerName = '';
+  monthlyProducedEnergy = '';
+  projectTotalCost = '';
 
   constructor() { }
 
@@ -24,11 +25,16 @@ export class FluxChoiceOneComponent implements OnInit {
   }
 
   continue(): void {
-    this.onContinue.emit();
+    const fluxOne: FluxOneInterface = {
+      developerName: this.developerName,
+      monthlyProducedEnergy: this.monthlyProducedEnergy,
+      projectTotalCost: this.projectTotalCost
+    }
+    this.onContinue.emit(JSON.stringify(fluxOne));
   }
 
   isValidData(): boolean {
-    return !!this.companyName && !!this.monthlyEnergy && !!this.totalPrice;
+    return !!this.developerName && !!this.monthlyProducedEnergy && !!this.projectTotalCost;
   }
 
 }
