@@ -14,9 +14,9 @@ export class ResultScreenComponent implements OnInit {
   @Input() title = '';
   @Input() subtitle = '';
   @Input() isSuccess: boolean = false;
-  @Input() amount = '';
-  @Input() savings = '';
   @Input() time = '';
+  @Input() discount: number = 0;
+  @Input() energyRateWithDiscount = '';
   textAlignmentClass = '';
 
 
@@ -24,7 +24,6 @@ export class ResultScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
     if (this.isSuccess) {
       this.textAlignmentClass = 'offset-md-1 col-md-5 text-left'
     } else {

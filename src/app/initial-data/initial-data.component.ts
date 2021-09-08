@@ -62,7 +62,7 @@ export class InitialDataComponent implements OnInit {
     private lupService: LupService
   ) {
     this.lupRequest = new LupRequestModel(0, 0);
-    this.lupResponse = new LupResponseModel('0');
+    this.lupResponse = new LupResponseModel('', 0, '');
   }
 
   ngOnInit(): void {
@@ -109,6 +109,8 @@ export class InitialDataComponent implements OnInit {
         this.finalScreenText = this.finalScreenSuccess
         this.resultText = this.successResponse;
         this.lupResponse.time = ''+result.data.time;
+        this.lupResponse.discount = result.data.discount;
+        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount;
         this.contactFormFiles = [true, true];
       } else {
         console.log('oh no');
@@ -132,6 +134,8 @@ export class InitialDataComponent implements OnInit {
         this.finalScreenText = this.finalScreenSuccess
         this.resultText = this.successResponse;
         this.lupResponse.time = ''+result.data.time;
+        this.lupResponse.discount = result.data.discount;
+        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount;
         this.contactFormFiles = [true, false];
       } else {
         console.log('oh no');
