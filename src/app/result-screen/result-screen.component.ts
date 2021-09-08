@@ -16,6 +16,7 @@ export class ResultScreenComponent implements OnInit {
   @Input() isSuccess: boolean = false;
   @Input() amount = '';
   @Input() savings = '';
+  @Input() time = '';
   textAlignmentClass = '';
 
 

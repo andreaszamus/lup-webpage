@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -6,6 +6,9 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
   styleUrls: ['./contact-form.component.sass']
 })
 export class ContactFormComponent implements OnInit {
+
+  @Input() uploadBill: boolean = true;
+  @Input() uploadProjectPrice: boolean = false;
 
   @Output() onGoBack = new EventEmitter<string>();
   @Output() onContinue = new EventEmitter<string>();
@@ -16,7 +19,10 @@ export class ContactFormComponent implements OnInit {
   country = '';
   address = '';
 
+  dataTreatment: boolean = false;
+
   @ViewChild('input1') input1: ElementRef | undefined;
+  @ViewChild('input2') input2: ElementRef | undefined;
 
   constructor() { }
 
@@ -35,10 +41,12 @@ export class ContactFormComponent implements OnInit {
     if (captureFileNumber == 1) {
       this.input1?.nativeElement.click();
     }
+    if (captureFileNumber == 2) {
+      this.input2?.nativeElement.click();
+    }
   }
 
   isValidData(): boolean {
-    return !!this.name && !!this.cellphone && !!this.email &&
-      !!this.country && !!this.address;
+    return !!this.name && !!this.cellphone && !!this.email && this.dataTreatment;
   }
 }

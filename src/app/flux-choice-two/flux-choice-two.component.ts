@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FluxTwoInterface} from "../models/flux-two.interface";
 
 @Component({
   selector: 'app-flux-choice-two',
@@ -12,6 +13,7 @@ export class FluxChoiceTwoComponent implements OnInit {
 
   isLoading = false;
   isResultReady = false;
+  area = '';
 
   constructor() { }
 
@@ -23,7 +25,10 @@ export class FluxChoiceTwoComponent implements OnInit {
   }
 
   continue(): void {
-    this.onContinue.emit();
+    const area: FluxTwoInterface = {
+      area: this.area
+    };
+    this.onContinue.emit(JSON.stringify(area));
   }
 
   showMiniLoading() {

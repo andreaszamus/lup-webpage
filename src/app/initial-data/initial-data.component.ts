@@ -4,6 +4,8 @@ import {LupRequestModel} from "../models/lup-request.model";
 import {LupService} from "../lup.service";
 import {EnergyInterface} from "../models/energy.interface";
 import {FluxOneInterface} from "../models/flux-one.interface";
+import {LupResponseModel} from "../models/lup-response.model";
+import {FluxTwoInterface} from "../models/flux-two.interface";
 
 @Component({
   selector: 'app-initial-data',
@@ -50,11 +52,17 @@ export class InitialDataComponent implements OnInit {
 
   lupRequest: LupRequestModel;
 
+  lupResponse: LupResponseModel;
+
+  // upload bill, uploadProjectPrice
+  contactFormFiles = [false, false];
+
   constructor(
     private router: Router,
     private lupService: LupService
   ) {
     this.lupRequest = new LupRequestModel(0, 0);
+    this.lupResponse = new LupResponseModel('0');
   }
 
   ngOnInit(): void {
@@ -64,8 +72,6 @@ export class InitialDataComponent implements OnInit {
       title: '',
       subtitle: ''
     };
-    this.finalScreenText = this.finalScreenNotSuccess
-    this.resultText = this.successResponse;
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
@@ -74,7 +80,7 @@ export class InitialDataComponent implements OnInit {
       this.screens[currentScreen] = 'visible slide-out-left on-top-of-god';
       this.screens[screenNumber] = 'visible';
     } else {
-      this.screens[currentScreen] = 'visible';
+      this.screens[currentScreen] = '';
       this.screens[screenNumber] = 'visible slide-in-left on-top-of-god';
     }
   }
@@ -91,16 +97,48 @@ export class InitialDataComponent implements OnInit {
     this.lupRequest.projectTotalCost = parseInt(fluxOneData.projectTotalCost);
     console.log('lupParams:', this.lupRequest);
     this.lupService.consultAvailability(this.lupRequest).then((result) => {
-      console.log('consultAvailability response: ', result);
+      console.log('consultAvailability1 response: ', result);
+
+      console.log('success');
+      this.finalScreenText = this.finalScreenSuccess
+      this.resultText = this.successResponse;
+      this.lupResponse.time = ''+result.data.time;
+      this.contactFormFiles = [true, true];
       if(result.data.irr > 0.17) {
         console.log('success');
         this.finalScreenText = this.finalScreenSuccess
         this.resultText = this.successResponse;
+        this.lupResponse.time = ''+result.data.time;
+        this.contactFormFiles = [true, true];
       } else {
+        console.log('oh no');
         this.finalScreenText = this.finalScreenNotSuccess;
         this.resultText = this.errorResponse;
       }
       this.goToScreen(5, 7);
+    }).catch((error: any) => {
+      console.log('error: ', error);
+    });
+  }
+
+  calculateAndContinueFluxTwo(event: any) {
+    console.log('flux one event: ', event);
+    const fluxTwoData = JSON.parse(event) as FluxTwoInterface;
+    this.lupRequest.area = parseInt(fluxTwoData.area);
+    this.lupService.consultAvailability(this.lupRequest).then((result) => {
+      console.log('consultAvailability2 response: ', result);
+      if(result.data.irr > 0.17) {
+        console.log('success');
+        this.finalScreenText = this.finalScreenSuccess
+        this.resultText = this.successResponse;
+        this.lupResponse.time = ''+result.data.time;
+        this.contactFormFiles = [true, false];
+      } else {
+        console.log('oh no');
+        this.finalScreenText = this.finalScreenNotSuccess;
+        this.resultText = this.errorResponse;
+      }
+      this.goToScreen(6, 7)
     }).catch((error: any) => {
       console.log('error: ', error);
     });

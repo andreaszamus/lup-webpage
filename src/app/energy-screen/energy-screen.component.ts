@@ -1,7 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {LupService} from "../lup.service";
-import {LupRequestModel} from "../models/lup-request.model";
 import {EnergyInterface} from "../models/energy.interface";
 
 @Component({
@@ -18,9 +15,7 @@ export class EnergyScreenComponent implements OnInit {
   lastMonthEnergyUsage = '';
   city = '';
 
-  constructor(
-    private lupService: LupService
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }

@@ -29,7 +29,7 @@
   <div class="initial-data__screen-6 {{screens[6]}}" *ngIf="screens[6].includes('visible')">
     <app-flux-choice-two
       (onGoBack)="goToScreen(6, 4)"
-      (onContinue)="goToScreen(6, 10)"
+      (onContinue)="calculateAndContinueFluxTwo($event)"
     ></app-flux-choice-two>
   </div>
 
@@ -39,41 +39,29 @@
 
   <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8].includes('visible')">
     <app-result-screen
-      (onContinue)="goToScreen(8, 12)"
+      (onContinue)="goToScreen(8, 9)"
       [header]="resultText.header"
       [title]="resultText.title"
       [subtitle]="resultText.subtitle"
       (onBack)="goToScreen(8, 3)"
-      [isSuccess]="resultText.isSuccess">
+      [isSuccess]="resultText.isSuccess"
+      [time]="lupResponse.time">
     </app-result-screen>
   </div>
 
   <div class="initial-data__screen-9 {{screens[9]}}" *ngIf="screens[9].includes('visible')">
-    <app-contact-form (onContinue)="goToScreen(9, 11)"></app-contact-form>
-  </div>
-
-  <div class="initial-data__screen-10 {{screens[10]}}" *ngIf="screens[10].includes('visible')">
-    <app-loading-screen (onContinue)="goToScreen(10, 11)"></app-loading-screen>
-  </div>
-
-  <div class="initial-data__screen-11 {{screens[11]}}" *ngIf="screens[11].includes('visible')">
-    <app-result-screen
-      (onContinue)="goToScreen(11, 12)"
-      [header]="'<p><span class=\'color-lup--violet-light\'>¡Felicidades!</p>'"
-      [title]="'Haz comenzado el camino para disfrutar de la energía limpia, renovable y gratuita del <span class=\'color-lup-yellow\'>sol</span>'"
-      [isSuccess]="true"
-      [subtitle]="'Tu proyecto tiene un preaprobado, su factibilidad debe ser analizada por nuestro equipo de profesionales'"></app-result-screen>
-  </div>
-
-  <div class="initial-data__screen-12 {{screens[12]}}" *ngIf="screens[12].includes('visible')">
-    <app-contact-form (onContinue)="goToScreen(12, 13)">
+    <app-contact-form
+      (onContinue)="goToScreen(9, 10)"
+      [uploadBill]="contactFormFiles[0]"
+      [uploadProjectPrice]="contactFormFiles[1]">
     </app-contact-form>
   </div>
 
-  <div class="initial-data__screen-13 {{screens[13]}}" *ngIf="screens[13].includes('visible')">
+  <div class="initial-data__screen-10 {{screens[10]}}" *ngIf="screens[10].includes('visible')">
     <app-final-screen
       [title]="finalScreenText.title"
-      (onStart)="goToLanding()">
+      (onStart)="goToLanding()"
+      (onGoBack)="goToScreen(10, 3)">
     </app-final-screen>
   </div>
 
