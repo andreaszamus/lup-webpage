@@ -15,7 +15,7 @@ import {FluxTwoInterface} from "../models/flux-two.interface";
 export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
-  screens = ['no','','','','','','','','','visible','','','',''];
+  screens = ['no','visible','','','','','','','','','','','',''];
 
   resultText = {
     isSuccess: false,
