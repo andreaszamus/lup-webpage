@@ -5,19 +5,21 @@
 <div class="contact-form__container">
   <div class="contact-form__form">
       <div class="lup-form">
-        <div class="lup-form__field">
+        <div class="lup-form__field lup-form__field--mandatory">
           <label for="input1">
             Nombre completo
           </label>
+          <span>*</span>
           <input id="input1"
                  class="lup-form__input"
                  type="text"
                  [(ngModel)]="name"/>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field lup-form__field--mandatory">
           <label for="input2">
             Celular
           </label>
+          <span>*</span>
           <input id="input2"
                  class="lup-form__input"
                  type="text"
@@ -27,16 +29,17 @@
                  maxlength="10"
                  [(ngModel)]="cellphone"/>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field lup-form__field--mandatory">
           <label for="input3">
             E-mail
           </label>
+          <span>*</span>
           <input id="input3"
                  class="lup-form__input"
                  type="email"
                  [(ngModel)]="email"/>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field" *ngIf="false">
           <label for="input4">
             País
           </label>
@@ -45,7 +48,7 @@
                  type="number"
                  [(ngModel)]="country" />
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field" *ngIf="false">
           <label for="input5">
             Dirección
           </label>
@@ -55,7 +58,7 @@
                  placeholder="Carr 00a #00a 00"
                 [(ngModel)]="address"/>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field" *ngIf="uploadBill">
           <label for="inputFile1">
             Adjunta tu última factura de servicios públicos
           </label>
@@ -66,11 +69,11 @@
             (click)="captureFile(1);"
             >PDF, JPG, PNG</button>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field" *ngIf="uploadProjectPrice">
           <label for="inputFile2">
             Adjunta la cotización del proyecto a financiar
           </label>
-          <input type="file" id="inputFile2" class="file-upload"
+          <input #input2 type="file" id="inputFile2" class="file-upload"
                  onchange="console.log(event.target.files)">
           <button
             class="lup-form__upload-button"
@@ -81,11 +84,17 @@
     </div>
   <div class="contact-form__footer">
     <div class="container-fluid">
+      <div class="row" [class.contact-form__empty-row]="isValidData()">
+        <div class="col-12 offset-md-1 col-md-10 text-end form-alert"
+             *ngIf="!isValidData()">* Para continuar completa el formulario</div>
+      </div>
       <div class="row">
         <div class="col-12 offset-md-1 col-md-5">
           <div class="lup-checkbox">
             <input type="checkbox" id="dataTreatment"
-                   name="nature" value="dataTreatment">
+                   name="nature" value="dataTreatment"
+                    [checked]="dataTreatment"
+                    (change)="dataTreatment = !dataTreatment">
             <label for="dataTreatment">
               Acepto las políticas de tratamiento de datos
             </label>
@@ -93,6 +102,7 @@
         </div>
         <div class="col-12 col-md-5 text-end">
           <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+                  [class.btn-navigation--margin-right]="!isValidData()"
                   (click)="back()"></button>
           <button class="btn btn-link btn-navigation btn-navigation--violet-right"
                   (click)="continue()"

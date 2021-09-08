@@ -39,25 +39,31 @@
                  digitOnly
                  [(ngModel)]="lastMonthEnergyUsage"/>
         </div>
-        <div class="lup-form__field">
+        <div class="lup-form__field lup-form__field--mandatory">
           <label for="input3">
-            ¿En qué ciudad se ubicaría tu<br/>proyecto solar?
+            ¿En qué ciudad se ubicaría
+            <br/>tu proyecto solar?
           </label>
-          <input id="input3" class="lup-form__input" type="number" placeholder="Medellín"/>
+          <span>*</span>
+          <input id="input3"
+                 class="lup-form__input"
+                 type="text"
+                 placeholder="Medellín"
+                  [(ngModel)]="city"/>
         </div>
       </div>
     </div>
     <div class="col-12 col-md-4 energy-screen__description-1 text-end">
       <div class="energy-screen__description-1">
         <p>
-          <span class="openSansBold">Los datos señalados </span>podrás encontrarlos<br/>
-          en tu factura de la siguiente forma:
+          <span class="openSansBold">Los datos de consumo </span>podrás<br/>
+          encontrarlos en tu factura:
         </p>
         <br/>
       </div>
       <div class="energy-screen__description-2">
-        (su ubicación en la factura depende<br/>
-        de la empresa prestadora del servicio)
+        (Su ubicación depende de la<br/>
+        empresa prestadora del servicio)
       </div>
       <div class="energy-screen__description-3">
         <div class="energy-screen__description-3--image"></div>
@@ -65,9 +71,10 @@
     </div>
   </div>
   <div class="row {{isAllowedToContinue()}}">
+    <div class="col-12 offset-md-1 col-md-10 text-end form-alert" *ngIf="!isAllowedToContinue()">* Para continuar completa el formulario</div>
     <div class="col-12 offset-md-1 col-md-10 text-end" *ngIf="isAllowedToContinue()">
       <button class="btn btn-link btn-navigation btn-navigation--violet-right"
-              (click)="calculateAndContinue()"></button>
+              (click)="continue()"></button>
     </div>
   </div>
 </div>

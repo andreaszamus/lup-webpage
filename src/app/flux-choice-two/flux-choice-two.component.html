@@ -4,11 +4,11 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 offset-md-1 col-md-10">
-      <div class="flux-two__header">No tengo una cotización</div>
+      <div class="flux-two__header">Ayúdanos a modelar tu sistema solar</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-5">
+    <div class="col-12 offset-md-1 col-md-5 flux-two__left-col">
       <div class="flux-two__box">
         <div class="flux-two__box-title">
           ¿Tienes el tamaño del área, en metros cuadrados (mt ), donde se instalaría el proyecto ?
@@ -16,7 +16,10 @@
         <div class="flux-two__question">
           <div class="flux-two__options">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <input class="form-check-input"
+                     type="radio"
+                     name="flexRadioDefault"
+                     id="flexRadioDefault1">
               <label class="form-check-label" for="flexRadioDefault1">
                 Sí ¿Cuánto?
               </label>
@@ -30,33 +33,42 @@
           </div>
           <div class="flux-two__optional-answer">
             <div class="lup-form">
-              <input id="input1" class="" type="number"/>
+              <input id="input1"
+                     class=""
+                     type="text"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="area"
+              />
             </div>
           </div>
         </div>
-        <div class="flux-two__btn-next text-center">
-          <button class="btn btn-link btn-navigation btn-navigation--violet-right"
-                  (click)="showMiniLoading()"></button>
-        </div>
-      </div>
-      <div class="flux-two__btn-back">
-        <button class="btn btn-link btn-navigation btn-navigation--violet-left"
-                (click)="goBack()"></button>
       </div>
     </div>
     <div class="col-12 col-md-5 flux-two__right-col">
-      <div class="flux-two__subtitle text-end">
-        De acuerdo a los datos que proporcionaste<br/>
-        este es el <span class="openSansBold">valor aproximado</span> para la instalación<br>
-        del proyecto solar que evolti financiaría
+      <div class="flux-two__subtitle">
+        Al conocer el área disponible podremos<br>
+         confirmarte que cuentas con el espacio<br>
+        requerido para la instalación del sistema
       </div>
-      <div class="flux-two__process" [class.scale-in-center]="isLoading || isResultReady">
+      <div class="flux-two__process" [class.scale-in-center]="isLoading || isResultReady" *ngIf="false">
         <app-mini-loading *ngIf="isLoading"
           (onContinue)="finishedLoading()"></app-mini-loading>
         <app-mini-result *ngIf="isResultReady"
           (onContinue)="continue()"
           ></app-mini-result>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 offset-md-1 col-md-5">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+              (click)="goBack()"></button>
+    </div>
+    <div class="col-12 col-md-5 text-end">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-right"
+              (click)="continue()"></button>
     </div>
   </div>
 </div>
