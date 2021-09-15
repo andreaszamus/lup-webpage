@@ -28,10 +28,10 @@
           Tu tarifa aproximada es:
         </div>
         <div class="result-screen__charge-amount">
-          {{amount}} pesos por kWh
+          {{energyRateWithDiscount}} pesos por kWh
         </div>
         <div class="result-screen__charge-savings">
-          un <span class="openSansBold">{{savings}}%</span> menor a la actual
+          un <span class="openSansBold">{{discount * 100}}%</span> menor a la actual
         </div>
         <div class="result-screen__charge-savings">
           Además, ¡en <span class="openSansBold">{{time}} años</span> el sistema<br>
