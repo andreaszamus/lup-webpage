@@ -77,8 +77,7 @@ export class InitialDataComponent implements OnInit {
     };
     this.screens[this.currentScreen] = 'visible';
     // test purposes only
-    //this.resultText = this.successResponse;
-    //this.lupResponse = new LupResponseModel('1')
+    // this.resultText = this.successResponse;
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
