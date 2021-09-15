@@ -16,7 +16,7 @@ export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
   screens = ['no','','','','','','','','','','','','',''];
-  currentScreen = 10;
+  currentScreen = 1;
 
   resultText = {
     isSuccess: false,
@@ -77,7 +77,7 @@ export class InitialDataComponent implements OnInit {
     };
     this.screens[this.currentScreen] = 'visible';
     // test purposes only
-    //this.resultText = this.successResponse;
+    // this.resultText = this.successResponse;
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
