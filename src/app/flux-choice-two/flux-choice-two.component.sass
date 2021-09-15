@@ -15,7 +15,7 @@ $separation: 46px
     display: flex
     flex-direction: column
     align-items: flex-end
-    margin-right: $separation
+    // margin-right: $separation
     margin-bottom: 100px
   &__box
     box-shadow: 0 3px 5px #48454D52
@@ -55,14 +55,20 @@ $separation: 46px
     height: 556px
     background-color: white
 
+@media (max-width: $xxl)
+  .flux-two
+    &__left-col, &__right-col
+      align-items: center
+
 // overrides
-.form-check-label
-  color: $lup-violet-dark
-  font-family: Montserrat-SemiBold, sans-serif
-  font-size: 28px
-  margin-left: 25px
+.form-check
+  &-label
+    color: $lup-violet-dark
+    font-family: Montserrat-SemiBold, sans-serif
+    font-size: 28px
+    margin-left: 25px
 .form-check-input
   margin-top: 12px
 .form-check
   margin-bottom: 45px
-  margin-left: 10px
+//  margin-left: 10px

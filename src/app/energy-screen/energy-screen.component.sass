@@ -19,7 +19,36 @@
       @include bill
       width: 318px
       height: 330px
+  &__bottom
+    margin-bottom: 150px
+    text-align: right
 
 // overrides
 .lup-checkbox
+  padding: 15px 5px
   margin-bottom: 72px
+  min-height: auto
+  label
+    margin-right: 0
+
+.lup-form
+  input
+    width: 100%
+
+// X-Large devices (large desktops, 1200px and up)
+@media (max-width: 1200px)
+  .lup-form
+    label
+      text-align: left
+      margin-bottom: 20px
+    input
+      margin-bottom: 25px
+
+  .energy-screen
+    &__description
+      &-1, &-2
+        text-align: left
+      &-3
+        justify-content: flex-start
+    &__bottom
+      text-align: left

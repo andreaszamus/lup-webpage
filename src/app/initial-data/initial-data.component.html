@@ -1,4 +1,4 @@
-<div class="initial-data__container">
+<div class="initial-data__container initial-data__container--{{currentScreen}}">
   <div class="initial-data__screen-1 {{screens[1]}}" *ngIf="screens[1].includes('visible')">
     <app-welcome-screen-one
       (onContinue)="goToScreen(1, 2)"></app-welcome-screen-one>
@@ -34,7 +34,9 @@
   </div>
 
   <div class="initial-data__screen-7 {{screens[7]}}" *ngIf="screens[7].includes('visible')">
-    <app-loading-screen (onContinue)="goToScreen(7, 8)"></app-loading-screen>
+    <app-loading-screen
+      (onContinue)="goToScreen(7, 8)"
+      [isLoading]="isLoading"></app-loading-screen>
   </div>
 
   <div class="initial-data__screen-8 {{screens[8]}}" *ngIf="screens[8].includes('visible')">

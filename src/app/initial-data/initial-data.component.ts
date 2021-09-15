@@ -15,7 +15,8 @@ import {FluxTwoInterface} from "../models/flux-two.interface";
 export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
-  screens = ['no','visible','','','','','','','','','','','',''];
+  screens = ['no','','','','','','','','','','','','',''];
+  currentScreen = 1;
 
   resultText = {
     isSuccess: false,
@@ -57,6 +58,8 @@ export class InitialDataComponent implements OnInit {
   // upload bill, uploadProjectPrice
   contactFormFiles = [false, false];
 
+  isLoading = true;
+
   constructor(
     private router: Router,
     private lupService: LupService
@@ -72,12 +75,15 @@ export class InitialDataComponent implements OnInit {
       title: '',
       subtitle: ''
     };
+    this.screens[this.currentScreen] = 'visible';
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     this.screens = this.resetScreens;
     if (currentScreen < screenNumber) {
-      this.screens[currentScreen] = 'visible slide-out-left on-top-of-god';
+      this.screens[currentScreen] = 'slide-out-left on-top-of-god';
       this.screens[screenNumber] = 'visible';
     } else {
       this.screens[currentScreen] = '';
@@ -90,7 +96,10 @@ export class InitialDataComponent implements OnInit {
   }
 
   calculateAndContinueFluxOne(event: any) {
+    this.isLoading = true;
     console.log('flux one event: ', event);
+    // show loading screen
+    this.goToScreen(5, 7);
     const fluxOneData = JSON.parse(event) as FluxOneInterface;
     this.lupRequest.monthlyProducedEnergy = parseInt(fluxOneData.monthlyProducedEnergy);
     this.lupRequest.developerName = fluxOneData.developerName;
@@ -98,7 +107,6 @@ export class InitialDataComponent implements OnInit {
     console.log('lupParams:', this.lupRequest);
     this.lupService.consultAvailability(this.lupRequest).then((result) => {
       console.log('consultAvailability1 response: ', result);
-
       console.log('success');
       this.finalScreenText = this.finalScreenSuccess
       this.resultText = this.successResponse;
@@ -115,14 +123,18 @@ export class InitialDataComponent implements OnInit {
         this.finalScreenText = this.finalScreenNotSuccess;
         this.resultText = this.errorResponse;
       }
-      this.goToScreen(5, 7);
+      // activate next button in loading screen
+      this.isLoading = false;
     }).catch((error: any) => {
       console.log('error: ', error);
     });
   }
 
   calculateAndContinueFluxTwo(event: any) {
+    this.isLoading = true;
     console.log('flux one event: ', event);
+    // show loading screen
+    this.goToScreen(6, 7)
     const fluxTwoData = JSON.parse(event) as FluxTwoInterface;
     this.lupRequest.area = parseInt(fluxTwoData.area);
     this.lupService.consultAvailability(this.lupRequest).then((result) => {
@@ -138,7 +150,8 @@ export class InitialDataComponent implements OnInit {
         this.finalScreenText = this.finalScreenNotSuccess;
         this.resultText = this.errorResponse;
       }
-      this.goToScreen(6, 7)
+      //
+      this.isLoading = false;
     }).catch((error: any) => {
       console.log('error: ', error);
     });

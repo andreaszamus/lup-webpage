@@ -11,14 +11,17 @@
       <div class="flux-one__title">¿Quién es tu proveedor de paneles solares?</div>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-12">
-      <div class="flux-one__form">
-        <div class="lup-form">
-          <div class="lup-form__field">
+    <div class="lup-form">
+      <div class="lup-form__field">
+        <div class="row">
+          <div class="col-12 offset-sm-1 col-sm-10 col-lg-6 col-xl-6 col-xxl-5 flux-one__col">
             <label for="input1">
               Nombre de la empresa
             </label>
+          </div>
+          <div class="col-12 offset-sm-1 col-sm-10 offset-lg-0 col-lg-5 col-xl-4 col-xxl-5">
             <input id="input1"
                    class="lup-form__input"
                    type="text"
@@ -26,12 +29,23 @@
                    [(ngModel)]="developerName"
             />
           </div>
-          <div class="lup-form__field lup-form__field--mandatory">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-12 offset-sm-1 col-sm-10 col-lg-6 col-xl-6 col-xxl-5 flux-one__col">
             <label for="input2">
               ¿Cuánta energía <span class="color-lup--yellow">mensual</span> generaría<br/>
               tu proyecto en kilovatio/hora <span class="color-lup--violet-light">(kWh)</span>?
             </label>
-            <span>*</span>
+            <label class="mandatory">*<br>&nbsp;</label>
+          </div>
+          <div class="col-12 offset-sm-1 col-sm-10 offset-lg-0 col-lg-5 col-xl-4 col-xxl-5">
             <input id="input2"
                    class="lup-form__input"
                    type="text"
@@ -41,12 +55,23 @@
                    digitOnly
                    [(ngModel)]="monthlyProducedEnergy"/>
           </div>
-          <div class="lup-form__field lup-form__field--mandatory">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-12 offset-sm-1 col-sm-10 col-lg-6 col-xl-6 col-xxl-5 flux-one__col">
             <label for="input3">
               Ingresa el precio total<br/>
               del proyecto a financiar
             </label>
-            <span>*</span>
+            <label class="mandatory">*<br>&nbsp;</label>
+          </div>
+          <div class="col-12 offset-sm-1 col-sm-10 offset-lg-0 col-lg-5 col-xl-4 col-xxl-5">
             <input id="input3"
                    class="lup-form__input"
                    type="text"
@@ -59,21 +84,21 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-sm-5 offset-sm-1">
-        <button class="btn btn-link btn-navigation btn-navigation--violet-left"
-                (click)="goBack()"></button>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-5 offset-sm-1">
+      <button class="btn btn-link btn-navigation btn-navigation--violet-left"
+              (click)="goBack()"></button>
+    </div>
+    <div class="col-12 col-sm-5 text-end">
+      <div
+        *ngIf="!isValidData()"
+        class="form-alert">* Para continuar completa el formulario
       </div>
-      <div class="col-12 col-sm-5 text-end">
-        <div
-          *ngIf="!isValidData()"
-          class="form-alert">* Para continuar completa el formulario
-        </div>
-        <button
-          class="btn btn-link btn-navigation btn-navigation--violet-right"
-          *ngIf="isValidData()"
-          (click)="continue()"></button>
-      </div>
+      <button
+        class="btn btn-link btn-navigation btn-navigation--violet-right"
+        *ngIf="isValidData()"
+        (click)="continue()"></button>
     </div>
   </div>
 </div>
