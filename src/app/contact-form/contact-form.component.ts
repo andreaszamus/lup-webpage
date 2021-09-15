@@ -47,6 +47,11 @@ export class ContactFormComponent implements OnInit {
   }
 
   isValidData(): boolean {
-    return !!this.name && !!this.cellphone && !!this.email && this.dataTreatment;
+    let isValidEmail = false;
+    const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    if (this.email) {
+      isValidEmail = pattern.test(this.email);
+    }
+    return !!this.name && !!this.cellphone && !!this.email && this.dataTreatment && isValidEmail;
   }
 }
