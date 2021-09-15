@@ -26,9 +26,9 @@ export class ResultScreenComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.isSuccess) {
-      this.textAlignmentClass = 'offset-md-1 col-md-5 text-left'
+      this.textAlignmentClass = 'col-10 offset-1 col-lg-5 text-left'
     } else {
-      this.textAlignmentClass = 'text-center'
+      this.textAlignmentClass = 'text-center col-12'
     }
   }
 

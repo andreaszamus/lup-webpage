@@ -76,9 +76,13 @@ export class InitialDataComponent implements OnInit {
       subtitle: ''
     };
     this.screens[this.currentScreen] = 'visible';
+    // test purposes only
+    //this.resultText = this.successResponse;
+    //this.lupResponse = new LupResponseModel('1')
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
+    this.currentScreen = screenNumber;
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     this.screens = this.resetScreens;
