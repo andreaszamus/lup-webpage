@@ -4,7 +4,7 @@
 </app-flux-status-header>
 <div class="container-fluid result-screen__container">
   <div class="row">
-    <div class="col-12 {{textAlignmentClass}} result-screen__col"
+    <div class="{{textAlignmentClass}} result-screen__col"
       [class.result-screen__col--success]="isSuccess">
       <div class="result-screen__title-container" [class.result-screen__title-container--not-success]="!isSuccess">
         <div class="result-screen__title"
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="isSuccess" class="col-md-5 text-end result-screen__charge-col">
+    <div *ngIf="isSuccess" class="col-10 offset-1 offset-lg-0 col-lg-5 text-end result-screen__charge-col">
       <div class="result-screen__charge-container text-center">
         <div class="result-screen__charge-title">
           Tu tarifa aproximada es:
@@ -40,14 +40,20 @@
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <button class="btn btn-link btn-navigation btn-navigation--go"
-            (click)="continue()"></button>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <!--<button class="btn btn-link btn-navigation btn-navigation--go"
+              (click)="continue()"></button>-->
+      <button class="btn btn-link btn-navigation color-lup--violet"
+              (click)="continue()">
+        ¿Deseas continuar con el estudio?
+      </button>
+    </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 offset-md-1">
+    <div class="col-10 offset-1">
       <button class="btn btn-link btn-navigation btn-navigation--violet-left"
               (click)="back()"> </button>
     </div>

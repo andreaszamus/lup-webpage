@@ -4,56 +4,81 @@
 </app-flux-status-header>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 col-md-6 offset-sm-1">
+    <div class="col-12 col-md-6 offset-sm-1 col-sm-10">
       <div class="lup-checkbox">
-        <div class="lup-checkbox__title">Eres</div>
-        <input type="radio" id="personaNatural"
-               name="nature" value="pn">
-        <label for="personaNatural">Persona Natural</label>
-        <input type="radio" id="personaJuridica"
-               name="nature" value="pj">
-        <label for="personaJuridica">Persona Jurídica</label>
+        <div class="row">
+          <div class="col-12 col-sm-3 col-md-12 col-lg-2 flex-center">
+            <div class="lup-checkbox__title">Eres</div>
+          </div>
+          <div class="col-12 col-sm-4 col-md-12 col-lg-5 flex-center">
+            <input type="radio" id="personaNatural"
+                   name="nature" value="pn">
+            <label for="personaNatural">Persona Natural&nbsp;</label>
+          </div>
+          <div class="col-12 col-sm-4 col-md-12 col-lg-5 flex-center">
+            <input type="radio" id="personaJuridica"
+                   name="nature" value="pj">
+            <label for="personaJuridica">Persona Jurídica</label>
+          </div>
+        </div>
       </div>
       <div class="lup-form">
         <div class="lup-form__field">
-          <label for="input1">
-            * ¿Cuánto pagaste en tu última<br/>factura de energía?
-          </label>
-          <input id="input1"
-                 class="lup-form__input"
-                 type="text"
-                 placeholder="500.000"
-                 inputmode="numeric"
-                 pattern="[0-9]*"
-                 digitOnly
-                 [(ngModel)]="lastMonthBill"/>
+          <div class="row">
+            <div class="col-12 col-xl-7">
+              <label for="input1">
+                * ¿Cuánto pagaste en tu última factura de energía?
+              </label>
+            </div>
+            <div class="col-12 col-xl-5">
+              <input id="input1"
+                     class="lup-form__input"
+                     type="text"
+                     placeholder="500.000"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="lastMonthBill"/>
+            </div>
+          </div>
         </div>
         <div class="lup-form__field">
-          <label for="input2">
-            * ¿Cuál fue el consumo de energía<br/>del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
-          </label>
-          <input id="input2" class="lup-form__input"
-                 type="text" placeholder="181kWh"
-                 inputmode="numeric"
-                 pattern="[0-9]*"
-                 digitOnly
-                 [(ngModel)]="lastMonthEnergyUsage"/>
+          <div class="row">
+            <div class="col-12 col-xl-7">
+              <label for="input2">
+                * ¿Cuál fue el consumo de energía del mes en Kilovatio/ hora <span class="color-lup--violet-light">(kWh)</span>?
+              </label>
+            </div>
+            <div class="col-12 col-xl-5">
+              <input id="input2" class="lup-form__input"
+                     type="text" placeholder="181kWh"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="lastMonthEnergyUsage"/>
+            </div>
+          </div>
         </div>
-        <div class="lup-form__field lup-form__field--mandatory">
-          <label for="input3">
-            ¿En qué ciudad se ubicaría
-            <br/>tu proyecto solar?
-          </label>
-          <span>*</span>
-          <input id="input3"
-                 class="lup-form__input"
-                 type="text"
-                 placeholder="Medellín"
-                  [(ngModel)]="city"/>
+        <div class="lup-form__field">
+          <div class="row">
+            <div class="col-12 col-xl-7">
+              <label for="input3">
+                * ¿En qué ciudad se ubicaría tu proyecto solar?
+              </label>
+
+            </div>
+            <div class="col-12 col-xl-5">
+              <input id="input3"
+                     class="lup-form__input"
+                     type="text"
+                     placeholder="Medellín"
+                     [(ngModel)]="city"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-4 energy-screen__description-1 text-end">
+    <div class="col-12 col-md-3 offset-sm-1 col-sm-10 energy-screen__description-1 text-end">
       <div class="energy-screen__description-1">
         <p>
           <span class="openSansBold">Los datos de consumo </span>podrás<br/>
@@ -70,9 +95,9 @@
       </div>
     </div>
   </div>
-  <div class="row {{isAllowedToContinue()}}">
-    <div class="col-12 offset-md-1 col-md-10 text-end form-alert" *ngIf="!isAllowedToContinue()">* Para continuar completa el formulario</div>
-    <div class="col-12 offset-md-1 col-md-10 text-end" *ngIf="isAllowedToContinue()">
+  <div class="row energy-screen__bottom">
+    <div class="col-12 offset-sm-1 offset-md-1 col-md-10 form-alert" *ngIf="!isAllowedToContinue()">* Para continuar completa el formulario</div>
+    <div class="col-12 offset-sm-1 offset-md-1 col-md-10" *ngIf="isAllowedToContinue()">
       <button class="btn btn-link btn-navigation btn-navigation--violet-right"
               (click)="continue()"></button>
     </div>

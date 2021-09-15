@@ -92,18 +92,18 @@ p
   label
     margin-right: 57px
   &__field
-    display: flex
-    flex-direction: row
-    justify-content: flex-end
-    align-items: center
+    //display: flex
+    //flex-direction: row
+    //justify-content: flex-end
+    //align-items: center
     margin-bottom: 64px
     &--mandatory
       label
         margin-right: 0
-      > span
-        margin-right: 38px
-        // padding-bottom: 43px
-        margin-left: 6px
+        &.mandatory
+          margin-right: 8px
+          // padding-bottom: 43px
+          margin-left: 36px
 
   label, span
     color: $lup-violet-dark
@@ -141,16 +141,16 @@ p
   border-radius: 49px
   min-height: 96px
   width: 100%
-  display: flex
-  flex-direction: row
+  // display: flex
+  // flex-direction: row
   color: $lup-violet-dark
   font-family: Montserrat-SemiBold, sans-serif
   font-size: 28px
-  justify-content: flex-start
-  align-items: center
+  // justify-content: flex-start
+  // align-items: center
   &__title
-    margin-left: 39px
-    margin-right: 57px
+    //margin-left: 39px
+    //margin-right: 57px
   input
     margin-right: 25px
   label
@@ -293,6 +293,24 @@ p
 @mixin yellow-warning
   background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 782 768' style='enable-background:new 0 0 782 768;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Benable-background:new ;%7D .st1%7Bfill:%23FEA837;%7D .st2%7Bopacity:0.17;%7D%0A%3C/style%3E%3Cg class='st0'%3E%3Cpath class='st1' d='M356.06,514.59c0-9.72,2.56-17.12,7.69-22.18c5.13-5.06,12.42-7.59,21.88-7.59c9.33,0,16.49,2.63,21.49,7.89 c4.99,5.26,7.49,12.55,7.49,21.88c0,9.33-2.53,16.72-7.59,22.18c-5.06,5.45-12.19,8.18-21.39,8.18c-9.33,0-16.59-2.63-21.78-7.89 C358.65,531.81,356.06,524.32,356.06,514.59z M402.98,451.71h-34.3l-10.25-200.68h54.6L402.98,451.71z'/%3E%3C/g%3E%3Cg id='Grupo_183_00000142174008087946095250000015356254447244168850_'%3E%3Cg id='Grupo_182_00000093155750849104519180000003068047028986829957_' transform='translate(0 5.546)' class='st2'%3E%3Cg id='Grupo_181_00000121997630348310872100000008310996046477077392_'%3E%3Cpath id='Trazado_118_00000030475997192425182900000010413742925128267955_' class='st1' d='M385.33,706.11 c-173.23,0-313.67-140.43-313.67-313.67S212.1,78.78,385.33,78.78C558.57,78.78,699,219.21,699,392.45 C698.8,565.6,558.49,705.91,385.33,706.11z M385.33,106.76c-157.78,0-285.69,127.91-285.69,285.69s127.91,285.69,285.69,285.69 s285.69-127.91,285.69-285.69C670.85,234.74,543.04,106.93,385.33,106.76z'/%3E%3C/g%3E%3C/g%3E%3Cpath id='Trazado_119_00000016044597477114306430000002824248103224856720_' class='st1' d='M99.62,398.01 c-0.03,76.53,30.73,149.86,85.34,203.47c-6.61,6.53-13.21,13.12-19.74,19.74c-123.36-121.5-124.87-319.99-3.37-443.35 c58.96-59.86,139.48-93.55,223.51-93.52v27.9C227.62,112.44,99.8,240.27,99.62,398.01z'/%3E%3Cpath id='Trazado_120_00000176724423203897063940000001119851346879402411_' class='st1' d='M699,398.01 c0.09,83.94-33.65,164.38-93.59,223.14l-19.74-19.74c112.44-110.56,113.97-291.35,3.41-403.79 c-53.72-54.63-127.14-85.38-203.75-85.34V84.35C558.48,84.53,698.82,224.85,699,398.01z'/%3E%3Cpath id='Trazado_121_00000096030218990999578900000016490295394009349509_' class='st1' d='M605.41,621.15 c-121.91,120.66-318.24,120.7-440.2,0.08c6.53-6.61,13.12-13.21,19.74-19.74c111.1,109.61,289.66,109.57,400.71-0.08L605.41,621.15 z'/%3E%3Cellipse id='Elipse_51_00000001656745675263194440000015965392732902011291_' class='st1' cx='390.72' cy='96' rx='39.67' ry='39.67'/%3E%3C/g%3E%3C/svg%3E%0A")
   @include background-styles
+
+// flex styles
+@mixin flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+.flex-center
+  @include flex-center
+
+// boostrap
+$xs: 0,
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+$xxl: 1400px
+
 
 // overrides
 .modal-content

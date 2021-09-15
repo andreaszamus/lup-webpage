@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-loading-screen',
@@ -8,6 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class LoadingScreenComponent implements OnInit {
 
   @Output() onContinue = new EventEmitter<string>();
+  @Input() isLoading = false;
 
   constructor() { }
 

@@ -8,12 +8,45 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 offset-md-1 col-md-5 flux-two__left-col">
+    <div class="col-10 offset-1 col-xxl-5 flux-two__left-col">
       <div class="flux-two__box">
         <div class="flux-two__box-title">
           ¿Tienes el tamaño del área, en metros cuadrados (mt ), donde se instalaría el proyecto ?
         </div>
-        <div class="flux-two__question">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <div class="form-check">
+              <input class="form-check-input"
+                     type="radio"
+                     name="flexRadioDefault"
+                     id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Sí ¿Cuánto?
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="lup-form">
+              <input id="input1"
+                     class=""
+                     type="text"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     digitOnly
+                     [(ngModel)]="area"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+        <!--<div class="flux-two__question">
           <div class="flux-two__options">
             <div class="form-check">
               <input class="form-check-input"
@@ -43,10 +76,10 @@
               />
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
-    <div class="col-12 col-md-5 flux-two__right-col">
+    <div class="col-10 offset-1 offset-xxl-0 col-xxl-5 flux-two__right-col">
       <div class="flux-two__subtitle">
         Al conocer el área disponible podremos<br>
          confirmarte que cuentas con el espacio<br>

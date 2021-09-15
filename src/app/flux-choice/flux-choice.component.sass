@@ -24,7 +24,7 @@
     @include flex-center
     flex-direction: column
     &:first-child
-      margin-right: 144px
+      margin-bottom: 32px
   &__btn
     @include font-styles
     border: none
@@ -32,6 +32,8 @@
     color: white
     min-height: 82px
     padding: 0 62px
+    width: 100%
+    max-width: 486px
     &--yellow
       background: transparent linear-gradient(90deg, #FEA837 0%, #FFC272 100%) 0% 0% no-repeat padding-box
     &--violet
@@ -45,3 +47,5 @@
       color: $lup-yellow
     &--violet
       color: $lup-violet-dark
+  &__bottom
+    margin-bottom: 150px
