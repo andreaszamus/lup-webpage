@@ -2,62 +2,124 @@
   [fluxTitle]="'<p><span class=\'color-lup--violet-light\'>Sobre tus </span><span class=\'color-lup--yellow\'>datos de contacto</span></p>'"
   [fluxStep]="3">
 </app-flux-status-header>
+
+<div class="container-fluid contact-form">
+  <div class="row">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-10 offset-1 col-sm-10 col-lg-4 contact-form__col">
+            <label for="input1">
+              Nombre
+            </label>
+            <label class="mandatory">*</label>
+          </div>
+          <div class="col-10 offset-1 col-sm-10 offset-lg-0 col-lg-6">
+            <input id="input1"
+                   class="lup-form__input"
+                   type="text"
+                   [(ngModel)]="name"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-10 offset-1 col-sm-10 col-lg-4 contact-form__col">
+            <label for="input2">
+              Celular
+            </label>
+            <label class="mandatory">*</label>
+          </div>
+          <div class="col-10 offset-1 col-sm-10 offset-lg-0 col-lg-6">
+            <input id="input2"
+                   class="lup-form__input"
+                   type="text"
+                   inputmode="numeric"
+                   pattern="[0-9]*"
+                   digitOnly
+                   maxlength="10"
+                   [(ngModel)]="cellphone"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-10 offset-1 col-sm-10 col-lg-4 contact-form__col">
+            <label for="input3">
+              E-mail
+            </label>
+            <label class="mandatory">*</label>
+          </div>
+          <div class="col-10 offset-1 col-sm-10 offset-lg-0 col-lg-6">
+            <input id="input3"
+                   class="lup-form__input"
+                   type="email"
+                   [(ngModel)]="email"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="false">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-10 offset-1 col-sm-10 col-lg-4 contact-form__col">
+            <label for="input4">
+              País
+            </label>
+            <label class="mandatory">*</label>
+          </div>
+          <div class="col-10 offset-1 col-sm-10 offset-lg-0 col-lg-6">
+            <input id="input4"
+                   class="lup-form__input"
+                   type="number"
+                   [(ngModel)]="country" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="false">
+    <div class="lup-form">
+      <div class="lup-form__field lup-form__field--mandatory">
+        <div class="row">
+          <div class="col-10 offset-1 col-sm-10 col-lg-4 contact-form__col">
+            <label for="input5">
+              Dirección
+            </label>
+            <label class="mandatory">*</label>
+          </div>
+          <div class="col-10 offset-1 col-sm-10 offset-lg-0 col-lg-6">
+            <input id="input5"
+                   class="lup-form__input"
+                   type="number"
+                   placeholder="Carr 00a #00a 00"
+                   [(ngModel)]="address"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
 <div class="contact-form__container">
   <div class="contact-form__form">
       <div class="lup-form">
-        <div class="lup-form__field lup-form__field--mandatory">
-          <label for="input1">
-            Nombre completo
-          </label>
-          <span>*</span>
-          <input id="input1"
-                 class="lup-form__input"
-                 type="text"
-                 [(ngModel)]="name"/>
-        </div>
-        <div class="lup-form__field lup-form__field--mandatory">
-          <label for="input2">
-            Celular
-          </label>
-          <span>*</span>
-          <input id="input2"
-                 class="lup-form__input"
-                 type="text"
-                 inputmode="numeric"
-                 pattern="[0-9]*"
-                 digitOnly
-                 maxlength="10"
-                 [(ngModel)]="cellphone"/>
-        </div>
-        <div class="lup-form__field lup-form__field--mandatory">
-          <label for="input3">
-            E-mail
-          </label>
-          <span>*</span>
-          <input id="input3"
-                 class="lup-form__input"
-                 type="email"
-                 [(ngModel)]="email"/>
-        </div>
-        <div class="lup-form__field" *ngIf="false">
-          <label for="input4">
-            País
-          </label>
-          <input id="input4"
-                 class="lup-form__input"
-                 type="number"
-                 [(ngModel)]="country" />
-        </div>
-        <div class="lup-form__field" *ngIf="false">
-          <label for="input5">
-            Dirección
-          </label>
-          <input id="input5"
-                 class="lup-form__input"
-                 type="number"
-                 placeholder="Carr 00a #00a 00"
-                [(ngModel)]="address"/>
-        </div>
         <div class="lup-form__field" *ngIf="uploadBill">
           <label for="inputFile1">
             Adjunta tu última factura de servicios públicos
@@ -89,18 +151,18 @@
              *ngIf="!isValidData()">* Para continuar completa el formulario</div>
       </div>
       <div class="row">
-        <div class="col-12 offset-md-1 col-md-5">
+        <div class="col-10 offset-1 col-xl-5">
           <div class="lup-checkbox">
             <input type="checkbox" id="dataTreatment"
                    name="nature" value="dataTreatment"
                     [checked]="dataTreatment"
                     (change)="dataTreatment = !dataTreatment">
             <label for="dataTreatment">
-              Acepto las políticas de tratamiento de datos
+              Acepto las políticas de tratamiento de datos *
             </label>
           </div>
         </div>
-        <div class="col-12 col-md-5 text-end">
+        <div class="col-10 offset-1 col-xl-5 text-end">
           <button class="btn btn-link btn-navigation btn-navigation--violet-left"
                   [class.btn-navigation--margin-right]="!isValidData()"
                   (click)="back()"></button>

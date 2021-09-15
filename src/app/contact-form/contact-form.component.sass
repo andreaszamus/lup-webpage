@@ -1,4 +1,7 @@
+@import "src/styles/styles"
+
 .contact-form
+  margin-top: 100px
   &__container
     display: flex
     flex-direction: column
@@ -14,11 +17,19 @@
     width: 100%
   &__empty-row
     height: 37px
+  &__col
+    text-align: right
 
+@media (max-width: $lg)
+  .contact-form
+    &__col
+      text-align: left
 // overrides
 .lup-form
   &__input
-    width: 520px
+    //width: 520px
+    width: 100%
+    max-width: 520px
   &__field
     margin-bottom: 27px
 .lup-checkbox

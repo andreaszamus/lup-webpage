@@ -16,7 +16,7 @@ export class InitialDataComponent implements OnInit {
 
   resetScreens = ['no','','','','','','','','','','','','','','','',''];
   screens = ['no','','','','','','','','','','','','',''];
-  currentScreen = 1;
+  currentScreen = 10;
 
   resultText = {
     isSuccess: false,
@@ -78,7 +78,6 @@ export class InitialDataComponent implements OnInit {
     this.screens[this.currentScreen] = 'visible';
     // test purposes only
     //this.resultText = this.successResponse;
-    //this.lupResponse = new LupResponseModel('1')
   }
 
   goToScreen(currentScreen: number, screenNumber: number): void {
