@@ -121,7 +121,7 @@ export class InitialDataComponent implements OnInit {
         this.resultText = this.successResponse;
         this.lupResponse.time = ''+result.data.time;
         this.lupResponse.discount = result.data.discount;
-        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount;
+        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount.toFixed(2);
         this.contactFormFiles = [true, true];
       } else {
         console.log('oh no');
@@ -150,7 +150,7 @@ export class InitialDataComponent implements OnInit {
         this.resultText = this.successResponse;
         this.lupResponse.time = ''+result.data.time;
         this.lupResponse.discount = result.data.discount;
-        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount;
+        this.lupResponse.energyRateWithDiscount = ''+result.data.energyRateWithDiscount.toFixed(2);
         this.contactFormFiles = [true, false];
       } else {
         console.log('oh no');
