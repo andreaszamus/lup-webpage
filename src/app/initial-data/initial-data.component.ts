@@ -141,7 +141,9 @@ export class InitialDataComponent implements OnInit {
     // show loading screen
     this.goToScreen(6, 7)
     const fluxTwoData = JSON.parse(event) as FluxTwoInterface;
-    this.lupRequest.area = parseInt(fluxTwoData.area);
+    if(fluxTwoData.area) {
+      this.lupRequest.area = parseInt(fluxTwoData.area);
+    }
     this.lupService.consultAvailability(this.lupRequest).then((result) => {
       console.log('consultAvailability2 response: ', result);
       if(result.data.irr > 0.17) {
